@@ -1,0 +1,17 @@
+# Angular
+node_modules/
+dist/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# modelos grandes
+*.pth
+modelo_bert_850_frases/
+tokenizer_bert_850_frases/
+
+# env
+.env
+apis.env

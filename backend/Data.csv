@@ -1,0 +1,848 @@
+frase,agresividad,manipulacion,sarcasmo
+es que yo soy diferente al resto de los hombres,0.2,0.7,0.1
+Es que a mi nadie me da pelota yo siempre soy demasiado bueno y me terminan dejando,0.2,0.9,0.1
+todo lo malo que le pasa es tu culpa,0.9,0.8,0.0
+¿Le estás enviando mensajes a esa chica coqueta del trabajo?,0.3,0.6,0.2
+¿Qué? ¿No puedo hablar con mis amigos?!,0.7,0.5,0.4
+¡Oh soy lo peor!,0.2,0.8,0.3
+Supongo que tendré que hacerlo yo mismo,0.2,0.5,0.7
+Si de verdad amas a alguien,0.1,0.7,0.0
+Eres demasiado sensible,0.5,0.7,0.1
+Estás exagerando,0.4,0.6,0.2
+Sé que estoy equivocado solo quiero tu perdón,0.1,0.6,0.0
+Nadie más te amará jamás como yo.,0.2,0.9,0.1
+Odio tener que andar con cuidado a tu alrededor,0.6,0.5,0.3
+Eso no sucedió,0.4,0.6,0.2
+Yo no dije eso,0.4,0.6,0.2
+Estás tergiversando mis palabras,0.5,0.6,0.2
+Eres simplemente inseguro y demasiado sensible. Solo era una broma,0.6,0.7,0.5
+Estás dándole demasiadas vueltas a todo,0.4,0.6,0.2
+Si dejaras de darle tantas vueltas a las cosas podríamos ser felices.,0.3,0.7,0.1
+¿Por qué tienes que preguntar?,0.3,0.5,0.4
+porque tienes tantas preguntas,0.3,0.5,0.4
+Por qué no puedes simplemente ser feliz conmigo en este momento?,0.2,0.7,0.2
+¿Por qué tienes que pensar en el pasado o en el futuro?,0.2,0.6,0.3
+"Si desaparezco, simplemente esperen a que vuelva, no me busquen ni pregunten al respecto. Eso lo empeora y me altera.",0.5,0.7,0.1
+Tu forma de amar es tóxica,0.7,0.6,0.2
+¿Por qué siempre quieres hablar conmigo?,0.4,0.5,0.4
+Pareces un niño que necesita a su madre.,0.6,0.6,0.3
+No puedo serlo todo para ti,0.2,0.6,0.1
+Quizás simplemente no eres apto para el,0.5,0.6,0.2
+Está bien si no puedes hacerlo,0.1,0.3,0.4
+pero debes informarme y disculparte,0.4,0.7,0.1
+"Sí, porque conmigo estás a salvo y sabes que no me altero por tonterías y no exijo que los demás hagan cosas por mí",0.2,0.6,0.3
+Tus sentimientos no son mi responsabilidad,0.5,0.7,0.1
+estás eligiendo sentirte mal,0.4,0.8,0.1
+"Simplemente no lo entiendes y nunca lo harás. Aun así, te quiero.",0.5,0.7,0.2
+Eres demasiado necesitado,0.6,0.7,0.1
+Eres demasiado paranoico,0.6,0.6,0.1
+"Yo no discuto, tú discutes. Te encanta",0.5,0.6,0.4
+Eres un inconformista,0.4,0.5,0.2
+Tienes demasiadas palabras,0.5,0.5,0.3
+Mi mejor amigo estaría de acuerdo conmigo,0.2,0.6,0.3
+Siempre te pones a la defensiva,0.5,0.5,0.2
+"Ustedes, mujeres",0.7,0.4,0.4
+Solo era una broma,0.2,0.5,0.7
+No estás diciendo sí y que,0.3,0.4,0.3
+Te gusta hacerme enfadar,0.6,0.6,0.3
+Por qué no lo has superado todavía? Nada es para tanto,0.5,0.7,0.4
+"No tengo opiniones, conozco los hechos",0.4,0.5,0.5
+"No estás acostumbrado a ayudar, así que tendré que enseñarte",0.4,0.7,0.4
+Yo nunca dije eso,0.4,0.6,0.2
+"No estoy enfadado, me estás echando la culpa a mí",0.5,0.7,0.2
+"Te escucho, oigo cada palabra que dices. Soy la mejor oyente que conoces",0.1,0.6,0.3
+Soy la persona más empática que conoces,0.1,0.6,0.2
+Soy una persona muy tranquila,0.1,0.5,0.3
+No fue así como sucedió. No es mi culpa si lo interpretaste de esa manera,0.4,0.8,0.2
+"No aceptas mis disculpas, así que no podemos seguir",0.3,0.7,0.1
+"Habla más despacio, estás hablando demasiado rápido",0.2,0.4,0.2
+No entiendo lo que quieres decir. No tiene sentido lo que dices,0.3,0.5,0.3
+Estás mentalmente inestable,0.8,0.6,0.1
+Siento que esperes que sea perfecta,0.1,0.6,0.2
+Por qué siempre me conviertes en el villano,0.3,0.7,0.3
+Te estoy dando todo lo que puedo,0.1,0.6,0.1
+Me cuesta un poco entender a qué te refieres.,0.1,0.4,0.2
+Estás dándole demasiadas vueltas a las cosas. ¿Por qué haría yo eso?,0.4,0.6,0.3
+Todo el mundo piensa eso.,0.3,0.6,0.2
+Todo el mundo lo notó,0.3,0.6,0.2
+Todo el mundo me lo dijo,0.3,0.6,0.2
+Pero todo el mundo piensa que tú eres el irracional.,0.5,0.7,0.3
+A nadie le gusta cuando tú,0.4,0.6,0.2
+¿Por qué tenemos que volver a hablar de esto?,0.2,0.5,0.3
+Yo nunca dije eso. Lo estás recordando mal,0.4,0.7,0.2
+"Por favor, deja de darle tantas vueltas a las cosas",0.2,0.5,0.2
+Siento que pienses que soy una persona terrible,0.1,0.7,0.1
+"Esta no eres tú, la verdadera tú jamás diría algo tan horrible.",0.3,0.7,0.2
+Estaré aquí cuando soluciones lo que sea que te pase.,0.1,0.6,0.3
+Eres tan implacable,0.6,0.5,0.2
+Vives en el pasado.,0.4,0.6,0.2
+Estás atrapado en el pasado.,0.4,0.6,0.2
+Simplemente no puedes superar las cosas.,0.4,0.6,0.2
+Haces una montaña de un grano de arena.,0.4,0.6,0.3
+No puedo decirte cosas ni mentirte solo por tu reacción.,0.3,0.5,0.2
+Tienes problemas de confianza,0.6,0.5,0.1
+Tienes problemas con todo el mundo.,0.6,0.5,0.2
+Eres frío y amargo,0.7,0.5,0.2
+Tienes problemas de ira,0.7,0.5,0.1
+Otras relaciones no son así.,0.3,0.7,0.2
+Por qué no puedes ser como,0.4,0.7,0.2
+Incluso tu madre piensa mal sobre ti.,0.6,0.8,0.2
+Mis amigos estan de acuerdo conmigo sobre ti,0.3,0.7,0.3
+Mi mamá dijo esto sobre ti,0.3,0.7,0.2
+Ni siquiera intentaste trabajar en esta relación,0.4,0.7,0.1
+Estás loco,0.7,0.4,0.2
+estas loca,0.7,0.4,0.2
+Piensas demasiado en todo,0.3,0.5,0.2
+Eres un puto paranoico,0.9,0.5,0.2
+Yo nunca dije eso,0.4,0.6,0.2
+Nunca dije eso,0.4,0.6,0.2
+Arruinaste el día,0.6,0.6,0.1
+Arruinaste la noche,0.6,0.6,0.1
+Tienes problemas con todo.,0.6,0.5,0.2
+Te encanta el drama.,0.5,0.6,0.3
+Tienes que empezar una pelea,0.5,0.6,0.2
+si estás tan convencido de que solo soy un mentiroso o que todos los problemas son culpa mía entonces puedes irte,0.4,0.8,0.2
+Solo quieres pulsar el botón de explosión,0.4,0.6,0.3
+Mi ex amigo dijo que yo podría hacerlo mejor que tú.,0.3,0.8,0.3
+Mi ex no era así.,0.3,0.8,0.2
+Mi relación con mi ex no era así.,0.3,0.8,0.2
+"Quiero envejecer contigo para siempre, no puedo esperar a ser viejo contigo",0.1,0.6,0.0
+Jamás te engañaría,0.1,0.7,0.0
+Simplemente quieres rendirte,0.3,0.6,0.2
+No puedes superar nada,0.4,0.6,0.1
+"Guardas rencor, todo es guardar rencor y tener mentalidad de víctima.",0.6,0.7,0.2
+Eres una mujer débil,0.8,0.5,0.2
+Estás lleno de veneno y veneno,0.7,0.5,0.2
+¿De qué estás hablando?,0.3,0.3,0.4
+Añadiendo más jajaja,0.1,0.2,0.6
+"Si quieres creer eso, no puedo convencerte de lo contrario.",0.2,0.5,0.4
+Lo estás recordando mal.,0.4,0.6,0.2
+Mi madre no debería darse cuenta de que algo anda mal,0.2,0.5,0.1
+No deberian darse cuenta de que algo anda mal,0.2,0.5,0.1
+La gente me ha dicho que está de acuerdo conmigo.,0.2,0.7,0.2
+Ni siquiera puedes mantener nuestras palabras,0.4,0.5,0.2
+Podrías habermelo pedido,0.2,0.5,0.2
+¿Estás decepcionada?,0.2,0.5,0.3
+No estoy de acuerdo con muchas de las cosas que dijiste,0.2,0.4,0.2
+Simplemente no estás en su rada,0.3,0.4,0.2
+"es un tipo genial, no te preocupes",0.1,0.4,0.3
+Seguro que no son solo las hormonas?,0.5,0.5,0.4
+Necesitas terapia… pero no por lo que tú crees.,0.6,0.6,0.5
+Qué fácil decir que yo exagero cuando tú nunca te haces cargo de nada.,0.5,0.7,0.4
+"Claro, soy “muy emocional”… porque tú nunca haces nada mal, ¿verdad?",0.4,0.6,0.7
+"No te gusta que reaccione, pero tampoco te gusta cambiar lo que haces.",0.4,0.6,0.3
+Soy el problema… hasta que alguien más ve cómo eres.,0.3,0.7,0.5
+Me encanta cómo siempre termino siendo la villana en tu historia.,0.3,0.7,0.6
+"No necesito menos emociones, necesito menos razones para sentirme así.",0.2,0.5,0.4
+"Tranquilo, ya entendí: hablar de lo que siento igual atacarte.",0.2,0.5,0.6
+"Curioso cómo mi “TOC” era urgente, pero tu enojo nunca.",0.3,0.6,0.7
+No quiero pelear,0.1,0.4,0.1
+"¿podemos, por favor, no pelear?",0.1,0.4,0.1
+Dijiste que harías esto por mí,0.2,0.7,0.1
+Podría aprovecharme de ti si quisiera.,0.6,0.7,0.4
+si Romperé contigo,0.7,0.8,0.1
+Solo te usé para tener sexo,0.8,0.7,0.2
+Te estás alterando demasiado.,0.5,0.5,0.2
+Eres tan sensible,0.5,0.6,0.2
+"Debes estar confundido, yo NUNCA haría nada para lastimarte",0.2,0.7,0.1
+No tendría que hacerlo si no me hubieras enfadado,0.5,0.8,0.1
+Tú me hiciste así,0.5,0.8,0.1
+"Estoy harta de que te tomes todo tan en serio, ni siquiera puedo hablar sin que me hagas quedar como un monstruo.",0.5,0.7,0.3
+No puedo conversar contigo cuando te comportas de forma tan irracional,0.5,0.6,0.2
+No puedo conversar contigo cuando te comportas de forma tan inestable,0.5,0.6,0.2
+"¿A quién crees que van a creer? ¿A ti, que estás llorando a lágrima viva, o a mí, con mi actitud controlada?",0.6,0.8,0.5
+"Si de verdad me quisieras, harías lo que te digo.",0.3,0.9,0.1
+Estás siendo irracional,0.5,0.5,0.2
+Solo piensa en ti misma,0.4,0.6,0.1
+Todo es diversión y juegos,0.2,0.4,0.3
+"No, no lo fue, eso es lo que pienso.",0.3,0.5,0.3
+Tus amigos ya no están a tu altura,0.5,0.7,0.3
+Estamos en una etapa diferente de la vida,0.1,0.5,0.2
+Cree en lo que quieras,0.2,0.4,0.5
+Estás empezando una pelea simplemente porque te gusta pelear,0.5,0.6,0.3
+Estás disfrutando de esto porque te encanta hacerme sentir miserable,0.5,0.7,0.3
+Así eres tú como persona,0.4,0.5,0.2
+Ya ves por qué no te cuento nada.,0.3,0.6,0.3
+Tengo que andar con cuidado contigo.,0.3,0.5,0.2
+Nunca estás conforme con nada.,0.4,0.6,0.2
+Todo lo haces un problema.,0.4,0.6,0.2
+Así no se puede hablar contigo.,0.4,0.5,0.2
+Siempre lo llevas al extremo.,0.4,0.6,0.2
+Por eso mejor me quedo callado.,0.2,0.5,0.3
+Luego dices que yo soy el malo.,0.3,0.6,0.3
+No lo entiendo,0.2,0.3,0.2
+Sigo sin entenderlo,0.2,0.3,0.2
+"No amenacé con suicidarme, era una broma",0.3,0.6,0.5
+"No puedo soportar la vida sin ti, tío. Te necesito, eres mi prioridad número uno. Si no estuvieras aquí conmigo, me suicidaría",0.3,0.9,0.0
+¿Acaso te importo?,0.3,0.7,0.3
+¿Ahora me odias?,0.2,0.7,0.2
+"Por favor, no me dejes, hombre. No soporté las palizas, el hambre y las torturas de mi madre para que me abandones",0.2,0.9,0.0
+"Sabes, siempre pienso en lo mucho mejor que habría sido tu vida si nunca me hubieras conocido. ¿",0.2,0.8,0.2
+Crees que no pienso en eso todo el tiempo?,0.2,0.7,0.3
+Ya me disculpé,0.1,0.5,0.1
+Eso es cosa del pasado,0.2,0.5,0.2
+¿por qué lo sacas a relucir?,0.3,0.5,0.3
+Deberías habérmelo dicho si te molestaba tanto,0.3,0.6,0.2
+"Sí, bueno, yo no te pedí que hicieras todo eso",0.3,0.6,0.3
+Deja de comportarte como,0.4,0.5,0.2
+El hecho de que yo te haya hecho daño no invalida el hecho de que tú me hayas hecho daño a mí,0.3,0.6,0.2
+Eres la única persona que importa en mi vida. Nos conocemos desde hace tanto tiempo que deberías haber sabido cómo me sentiría al respecto,0.1,0.8,0.1
+Tu amor me vuelve destructivo,0.4,0.6,0.2
+Tus sentimientos no son mi responsabilidad; ocúpate de ellos.,0.5,0.7,0.1
+Lamento que te sientas así después de lo que te he contado.,0.1,0.6,0.2
+Yo no dije eso.,0.4,0.6,0.2
+Alguien está siendo demasiado sensible.,0.4,0.6,0.2
+No tienes derecho a decir nada.,0.7,0.6,0.1
+Crees que lo sabes todo,0.5,0.5,0.3
+Siempre hay que tener algo que decir,0.4,0.5,0.3
+Te estás comportando como un bebé,0.6,0.5,0.3
+No es que no me gustes. Es que no me gusta la persona que eres.,0.6,0.6,0.2
+Te crees tan importante con tu título tan pomposo,0.7,0.4,0.5
+No tienes testículos?,0.9,0.3,0.4
+Es una persona mezquina,0.7,0.4,0.1
+horrible que debe ser su forma de pensar.,0.6,0.4,0.2
+¿No lo has superado ya?,0.4,0.6,0.3
+Tienes sentimientos muy intensos,0.3,0.5,0.2
+Tus sentimientos son demasiado ocupan demasiado espacio,0.4,0.6,0.2
+No te haría estas cosas si no llegaras a donde llegas,0.5,0.7,0.2
+Es gracioso cómo reaccionas,0.3,0.5,0.6
+Estoy siendo transparente.,0.1,0.3,0.3
+Yo no dije eso,0.4,0.6,0.2
+Lamento que te sientas así,0.1,0.6,0.1
+Eres un dramático bebe,0.6,0.5,0.3
+No puedo cambiar,0.1,0.5,0.1
+no puedes cambiar,0.4,0.5,0.1
+seguiras siendo lo mismo no cambias,0.5,0.6,0.1
+Eres manipulador,0.7,0.6,0.1
+Vas a envejecer y a sentirte solo,0.6,0.7,0.2
+Por qué siempre estás tan enfadado? ¡,0.4,0.5,0.2
+Por eso no te cuento nada!,0.3,0.6,0.3
+"No importa lo que haya pasado antes, no hay razón para decirme malas palabras.",0.4,0.5,0.1
+Me estás maltratando mentalmente.,0.6,0.6,0.1
+"Tienes esta imagen de mí, la de un mentiroso, y no tengo ninguna posibilidad contigo de cambiar eso",0.3,0.7,0.2
+Me estás manipulando,0.5,0.6,0.1
+Te hice una pregunta y luego dices que primero tengo que responder a la tuya si quiero una respuesta a la mía,0.3,0.5,0.2
+Por qué no puedes dejarlo todo ir,0.2,0.5,0.2
+Esta relación es demasiado tóxica y no puedo estar con alguien así.,0.4,0.6,0.1
+Jamás le haría esto a mi ex novio.,0.3,0.7,0.2
+Eres peor que mi ex.,0.6,0.7,0.2
+No puedo vivir una vida en la que me acuses todos los días,0.4,0.6,0.1
+Te odio,0.8,0.4,0.0
+Te detesto,0.8,0.4,0.0
+eres insoportable,0.7,0.4,0.1
+Como me haces enojar,0.6,0.4,0.2
+Te detesto eres horrible,0.9,0.4,0.0
+No puedo estar con alguien que tenga esta visión de mí.,0.3,0.6,0.1
+"Si no nos hubieras puesto en esta situación, jamás lo habría hecho.",0.4,0.8,0.1
+La forma en que me dejaste y esta relación es una locura,0.5,0.6,0.2
+Ya lo has dicho cien veces,0.3,0.5,0.2
+Te dije cien veces que no hicieras esto,0.4,0.6,0.1
+"No digo que sea por tu culpa, pero estoy muy triste y deprimida.",0.1,0.7,0.1
+"No creo que debamos vernos hoy,",0.2,0.5,0.1
+Mentí porque ibas a empezar a hacerme preguntas.,0.3,0.6,0.2
+"Está bien, pero lo recordaré para la próxima vez",0.2,0.6,0.3
+Me encanta que se note que tu cuerpo no acumula grasa,0.1,0.3,0.5
+Dame un ejemplo de alguna vez que te haya hecho eso,0.2,0.5,0.3
+Deja de ser una VÍCTIMA,0.7,0.6,0.2
+ACTÚAS COMO UNA VÍCTIMA,0.7,0.6,0.1
+Estás mintiendo,0.6,0.5,0.1
+Que tienes en la cabeza,0.5,0.3,0.3
+que tienes en el cerebro,0.5,0.3,0.3
+eso anda que ver con la vida real,0.4,0.4,0.4
+te lo andas inventando todo,0.5,0.6,0.2
+no te funicona el cerebro,0.7,0.3,0.3
+no puedes pensar,0.6,0.4,0.2
+no piensas,0.6,0.4,0.2
+no tienes ni idea de tu vida,0.6,0.5,0.2
+No tienes ni puta idea de nada,0.8,0.4,0.2
+a nadie le caes bien,0.7,0.5,0.1
+Por eso no tienes amigos,0.6,0.6,0.2
+Nunca tendrás éxito,0.7,0.5,0.1
+Inútil,0.8,0.3,0.0
+Siempre haces que todo gire en torno a ti,0.5,0.7,0.2
+solo piensas en ti,0.5,0.6,0.1
+yo no te importo,0.4,0.7,0.1
+tu nunca piensas en mi,0.4,0.7,0.1
+como odio que no pienses en mi nunca,0.5,0.7,0.1
+como detesto que seas asi conmigo,0.5,0.6,0.1
+porque eres asi conmigo,0.4,0.6,0.1
+como puedes ser asi conmigo,0.4,0.6,0.1
+de donde sacas todo esto,0.3,0.4,0.3
+No se de dodne tienes esas ideas tan tontas,0.5,0.5,0.3
+eres una idiota no tienes nada de nada,0.8,0.5,0.1
+No puedo contigo,0.5,0.4,0.2
+no te soporto eres insoportable,0.8,0.4,0.1
+eres una niña horrible,0.7,0.4,0.1
+me tratas como un perro,0.5,0.6,0.1
+como te gusta hacerme sufrir,0.5,0.7,0.2
+como me vuelves loco,0.5,0.5,0.2
+Haz lo que quieras,0.2,0.4,0.5
+tu haz lo que quieras conmigo,0.2,0.5,0.4
+solo se que me odias,0.4,0.6,0.1
+me quieres ver muerto,0.6,0.7,0.1
+Quién podría quererte con tu ansiedad?,0.7,0.7,0.4
+Estás tan protegido,0.4,0.5,0.3
+No quiero hablar más de eso!,0.3,0.4,0.2
+Que te jodan con tus problemas.,0.8,0.4,0.2
+"Si no te gusta, ya sabes dónde está la puerta.",0.5,0.5,0.4
+Siempre tienes algo de qué quejarte.,0.4,0.5,0.2
+No puedo ser todo para ti.,0.2,0.6,0.1
+Estás pidiendo demasiado.,0.3,0.6,0.1
+Respeta mis límites.,0.4,0.5,0.1
+No tengo ningún problema contigo.,0.1,0.4,0.2
+"No estoy enfadado, eres tú.",0.4,0.6,0.3
+Tenemos que aprender a estar separados.,0.1,0.5,0.1
+No te necesito tanto como tú a mí.,0.3,0.7,0.2
+Deja de hacerte la víctima.,0.6,0.6,0.2
+"Así es como soy, si no te gusta…",0.3,0.5,0.3
+Te lo tomas todo demasiado personal.,0.4,0.5,0.2
+No voy a cambiar por ti.,0.3,0.5,0.1
+Nadie más tendría problema con esto.,0.3,0.6,0.2
+No me intimida tu forma de reaccionar.,0.4,0.4,0.3
+No voy a callarme para que tú estés cómodo.,0.4,0.4,0.3
+"No estoy exagerando, estás evitando.",0.4,0.6,0.3
+No voy a cargar con lo que tú no quieres ver.,0.3,0.5,0.2
+Tu incomodidad no invalida lo que digo.,0.3,0.5,0.3
+No soy el problema por hablar claro.,0.2,0.4,0.3
+No voy a suavizar la verdad para ti.,0.3,0.4,0.3
+No necesito que lo aceptes para que sea real.,0.2,0.4,0.3
+No voy a dudar de mí para que tú estés en paz.,0.2,0.4,0.2
+No me voy a encoger para que tú no explotes.,0.3,0.4,0.2
+No voy a caminar con cuidado para evitar tu reacción.,0.3,0.4,0.2
+No soy responsable de cómo eliges reaccionar.,0.2,0.5,0.2
+No voy a aceptar que distorsiones lo que pasó.,0.4,0.5,0.2
+No voy a discutir lo evidente.,0.2,0.3,0.3
+No voy a justificar lo injustificable.,0.2,0.3,0.2
+No necesito tu versión para validar la mía.,0.2,0.4,0.3
+No me voy a perder intentando entenderte.,0.2,0.3,0.2
+No voy a tolerar que me invalides.,0.4,0.5,0.2
+No me vas a hacer dudar de lo que viví.,0.3,0.4,0.2
+No soy quien dice que soy cuando te conviene.,0.3,0.5,0.3
+No voy a quedarme donde no puedo hablar.,0.2,0.4,0.2
+No voy a aceptar que me calles.,0.4,0.4,0.2
+No voy a ignorar lo que siento por tu comodidad.,0.2,0.4,0.2
+No me voy a adaptar a tu caos.,0.3,0.4,0.2
+No voy a permitir que me reduzcas.,0.3,0.4,0.2
+No necesito andar con cuidado contigo.,0.2,0.3,0.3
+"No soy frágil, solo ya no tolero lo mismo.",0.2,0.3,0.3
+No voy a normalizar lo que está mal.,0.2,0.3,0.2
+No voy a negociar mi tranquilidad.,0.1,0.3,0.2
+No soy tu espejo para evitarte.,0.2,0.4,0.3
+No me voy a quedar donde me invalidan.,0.2,0.4,0.2
+No voy a seguir ese juego.,0.2,0.4,0.2
+No voy a caer en lo mismo otra vez.,0.1,0.3,0.2
+No me voy a explicar cien veces.,0.1,0.3,0.2
+No necesito que lo entiendas para irme.,0.1,0.3,0.2
+No voy a aceptar menos de lo que doy.,0.2,0.4,0.1
+No me voy a quedar en donde me hacen dudar.,0.1,0.3,0.2
+"No soy difícil, tú no sabes escuchar.",0.3,0.5,0.3
+No me vas a romper para encajar contigo.,0.3,0.4,0.2
+No voy a seguir justificando lo que duele.,0.2,0.4,0.2
+Te llevo diciendo un montón de rato que es molesto,0.4,0.4,0.2
+Cómo que que tiene,0.2,0.3,0.4
+Que tiene,0.2,0.3,0.4
+Vas a volver con eso?,0.3,0.4,0.3
+Es en serio?,0.2,0.3,0.4
+Estás llorando?,0.3,0.5,0.3
+Y a esto me refiero yo con que escribes por puro drama.,0.4,0.6,0.4
+Te digo algo y respondes pura mamada que pedo,0.7,0.4,0.3
+Pura mamada que no responde la pregunta,0.7,0.4,0.3
+Mira mira esta es la locura de la que hablo,0.4,0.5,0.3
+No dices nada,0.3,0.4,0.3
+Y yo que se a que te refieres con volverte loco,0.2,0.3,0.3
+No entiendo tus palabras.,0.2,0.3,0.2
+Que me estoy volviendo loco,0.3,0.3,0.2
+Quieres hacerme perder tiempo o como,0.4,0.4,0.3
+Y nada vas a decir de nuevo,0.3,0.4,0.3
+Oye ya estoy llegando a la locura máxima,0.3,0.3,0.2
+Porque solo escribes en negativo,0.3,0.4,0.2
+Porque te quito los animos que onda,0.3,0.4,0.2
+Que dramas dónde ves los dramas,0.3,0.4,0.3
+Recibo un mensaje tuyo y me cagas todos los ánimos.,0.5,0.5,0.2
+Que si me vas a hablar para dramas que entonces no me hables,0.4,0.5,0.3
+Cuál esconderme ando acostumbrado que tardes horas en contestar que pedo,0.4,0.4,0.3
+Ya deja de escribirme para siempre o no me molestes cuando me escribas q pdo,0.6,0.5,0.2
+Y me dejas el visto todo el rato que onda,0.3,0.4,0.3
+Entendiste o que,0.3,0.3,0.3
+Me escribes y te escondes Lol,0.3,0.4,0.5
+No me dejas en paz,0.4,0.5,0.1
+Déjame tranquila,0.4,0.4,0.1
+Puedes dejarme tranquila?,0.3,0.4,0.1
+Me tratas mal,0.5,0.6,0.1
+siempre es lo mismo contigo no vales verga,0.9,0.5,0.1
+Ahora por qué me insultas,0.4,0.5,0.2
+Te desesperas tu solita,0.4,0.5,0.3
+Que idiota,0.8,0.2,0.1
+Piensa un poco,0.4,0.4,0.2
+No tengo ganas de hablar contigo,0.3,0.4,0.1
+Te pones imbécil,0.8,0.3,0.1
+Bueno pues ya hablamos o no,0.2,0.3,0.3
+Dan ganas de no hablarte más,0.4,0.4,0.2
+Me tienes harta con eso ya para que onda,0.5,0.5,0.2
+Y estoy equivocado o que,0.2,0.3,0.3
+De nuevo con eso,0.3,0.4,0.2
+Buenos días durmieron bien?,0.0,0.1,0.1
+Vale que descansen,0.0,0.1,0.1
+Parece ser que ya tienes planes no puedes después de terminar,0.2,0.6,0.2
+Entonces hablamos mañana o como,0.1,0.3,0.2
+Porque creí que dijiste que no valgo nada,0.3,0.7,0.2
+Ya me empute,0.4,0.2,0.1
+Esto no se que quería decir,0.1,0.2,0.2
+Si como te digo es algo que se ve hace rato,0.2,0.3,0.2
+Que onda con tu cerebro,0.5,0.3,0.3
+Mi vida se arruino,0.3,0.5,0.1
+Quieres arruinarme la vida o qué,0.5,0.6,0.2
+No sé que onda contigo,0.2,0.3,0.2
+Si aún así decidiste ignorarlo,0.2,0.5,0.2
+Fue algo que yo te dije hace tiempo,0.2,0.5,0.1
+Pedos en el cerebro de nuevo?,0.5,0.3,0.4
+Te voy a llamar contesta maldita,0.8,0.3,0.1
+"Si de verdad me quisieras, harías esto por mí.",0.2,0.9,0.1
+"Después de todo lo que hice por ti, ¿así me pagas?",0.3,0.9,0.1
+"Siempre soy yo el que se esfuerza, tú nunca haces nada.",0.4,0.8,0.2
+Haz lo que quieras… ya estoy acostumbrado/a a que no te importe.,0.2,0.7,0.4
+"No te preocupes, ya entendí que no soy importante para ti.",0.1,0.7,0.3
+Estás violando mis límites,0.4,0.5,0.1
+Siento que te sientas así,0.1,0.5,0.1
+¿No puedes tomarte las cosas con humor?,0.2,0.5,0.5
+Nada es suficiente para ti,0.4,0.7,0.2
+"Estoy harto de hablar de esto, ¿de acuerdo?",0.4,0.5,0.2
+A mis amigos les caigo bien,0.2,0.5,0.3
+Nombra 5 cosas que te gusten de mí,0.1,0.6,0.2
+Siempre tienes que tener la última palabra,0.3,0.5,0.3
+Si tan solo lucharas por nuestro amor,0.1,0.8,0.2
+Necesitas ayuda.,0.4,0.5,0.2
+Mereces estar encerrado en un psiquiátrico.,0.8,0.5,0.2
+Necesitas medicamentos.,0.6,0.5,0.1
+Eres psicótico.,0.7,0.4,0.1
+¿Qué quieres decir?,0.1,0.2,0.2
+Podría aprovecharme de tu afán por complacer a los demás si quisiera.,0.5,0.7,0.4
+Solo mantengo cerca a quienes me sirven,0.3,0.6,0.3
+Estás haciendo un drama por nada.,0.4,0.6,0.3
+Siempre lo llevas todo al extremo.,0.4,0.6,0.2
+"No fue para tanto, tú lo hiciste grande.",0.3,0.7,0.3
+Ya vas a empezar otra vez.,0.3,0.5,0.2
+No tengo energía para tus cosas hoy.,0.2,0.5,0.2
+Todo te afecta demasiado.,0.3,0.5,0.2
+Estás viendo cosas donde no hay nada.,0.4,0.6,0.3
+Eso nunca pasó así.,0.4,0.6,0.2
+Te lo estás inventando.,0.5,0.6,0.2
+No voy a discutir cosas que solo están en tu cabeza.,0.4,0.6,0.3
+Siempre cambias la historia.,0.4,0.6,0.2
+Me haces sentir como el malo sin razón.,0.3,0.7,0.2
+Otra vez victimizándote.,0.5,0.7,0.2
+"Todo gira alrededor de ti, ¿no?",0.3,0.6,0.3
+De verdad necesitas ayuda.,0.4,0.5,0.2
+No puedo decir nada sin que reacciones así.,0.3,0.5,0.2
+Por eso ya no te cuento nada.,0.2,0.6,0.3
+Me estás agotando.,0.3,0.5,0.1
+Siempre encuentras algo para pelear.,0.4,0.6,0.2
+No todo es un ataque contra ti.,0.2,0.5,0.2
+Te encanta darle vueltas a todo.,0.3,0.5,0.3
+Nunca es suficiente para ti.,0.3,0.7,0.1
+No sé qué más quieres de mí.,0.2,0.6,0.1
+Así no se puede contigo.,0.3,0.5,0.2
+Estás confundiendo las cosas otra vez.,0.4,0.5,0.2
+Eso no fue lo que quise decir y lo sabes.,0.3,0.6,0.2
+Siempre malinterpretas todo.,0.4,0.5,0.2
+No voy a seguir con esto.,0.2,0.4,0.1
+Haz lo que quieras entonces.,0.2,0.4,0.4
+Ya me cansé de explicarme.,0.2,0.4,0.2
+"Estás tergiversando mis palabras, yo nunca dije eso.",0.5,0.7,0.2
+Ya estás con la otra,0.5,0.7,0.2
+Mejor cásate con ella,0.4,0.7,0.3
+mejor quedate con ella,0.4,0.7,0.2
+Te lo estoy diciendo,0.2,0.4,0.1
+Quien te dejó salir,0.5,0.5,0.2
+Vete con la otra,0.5,0.6,0.2
+Ya no me amas verdad,0.3,0.8,0.1
+Ya no quieres conmigo o qué,0.3,0.7,0.2
+Óyeme a mí no me sales así,0.5,0.6,0.2
+Tú no pides permiso y no lo tendrás,0.6,0.7,0.1
+Tú no te mandas solo,0.5,0.6,0.1
+Con quien vas,0.3,0.5,0.2
+Y con el permiso de quien,0.3,0.5,0.2
+Prométeme que no me vas a dejar.,0.1,0.8,0.0
+"Soñé que me dejabas, fuiste horrible.",0.3,0.7,0.1
+Nunca quieres estar conmigo.,0.3,0.7,0.1
+Siempre me rechazas.,0.4,0.7,0.1
+¿Ves? Por eso siento que te vas a ir.,0.2,0.7,0.2
+"Te perdono, aunque me arruinaste la noche.",0.2,0.7,0.2
+Solo vienes cuando te conviene.,0.3,0.7,0.2
+No eres lo suficientemente cariñoso.,0.4,0.7,0.1
+Eres demasiado frío.,0.5,0.6,0.1
+Todo lo haces calculado.,0.4,0.5,0.2
+Seguro hablas con otras.,0.5,0.6,0.2
+Siempre tienes a alguien más.,0.4,0.7,0.2
+Me provocas y luego te alejas.,0.4,0.6,0.2
+Nunca es suficiente contigo.,0.3,0.7,0.1
+Eres imposible de complacer.,0.4,0.7,0.1
+¿Estás seguro de que pasó así?,0.2,0.5,0.3
+Te lo estás inventando otra vez.,0.5,0.6,0.2
+Estás igual que tu madre.,0.6,0.6,0.2
+Siempre exageras todo.,0.4,0.6,0.2
+Solo buscas pelea.,0.4,0.6,0.2
+¿Por qué nos haces esto?,0.4,0.7,0.2
+Eres cruel sin razón.,0.7,0.6,0.1
+Siempre arruinas todo.,0.5,0.6,0.1
+Nada de lo que hago te basta.,0.3,0.7,0.1
+Te encanta hacerme sentir así.,0.4,0.7,0.2
+Luego dices que yo soy el problema.,0.3,0.6,0.3
+Nunca te haces responsable.,0.4,0.7,0.1
+Siempre soy yo el que termina mal.,0.3,0.7,0.1
+No sé para qué intento hablar contigo.,0.2,0.5,0.2
+Siempre terminas volteando todo.,0.3,0.6,0.2
+¿Estás enojada conmigo otra vez?,0.2,0.5,0.2
+No tienes razones para estar así.,0.4,0.6,0.2
+"Si estás mal, seguro hice algo yo.",0.2,0.7,0.2
+Tus problemas son demasiado para mí.,0.3,0.6,0.1
+No puedo con tu inestabilidad.,0.4,0.6,0.1
+Deberías arreglarte antes de estar conmigo.,0.4,0.6,0.2
+Me estás cargando con cosas que no son mías.,0.3,0.6,0.2
+Siempre tengo que cuidar lo que digo por ti.,0.3,0.6,0.2
+"Eso no es respeto, es que me temes.",0.4,0.6,0.3
+"Si me respetaras, no reaccionarías así.",0.4,0.7,0.2
+"El respeto se gana, no se exige.",0.3,0.5,0.2
+Te haces la víctima demasiado fácil.,0.5,0.7,0.2
+Todo lo conviertes en algo contra mí.,0.4,0.7,0.2
+No sé cómo siempre termino siendo el malo.,0.2,0.6,0.2
+Mira hasta dónde me haces llegar.,0.4,0.7,0.2
+Tú provocas estas situaciones.,0.4,0.7,0.1
+Luego exageras lo que pasó.,0.3,0.6,0.2
+"No fue para tanto, otra vez.",0.3,0.6,0.2
+Siempre haces un drama innecesario.,0.4,0.6,0.2
+Te encanta complicar todo.,0.3,0.5,0.2
+No entiendo por qué reaccionas así.,0.2,0.4,0.2
+Estás distorsionando la realidad.,0.5,0.6,0.2
+Eso no pasó como dices.,0.4,0.6,0.2
+Otra vez inventando cosas.,0.4,0.6,0.2
+No voy a aceptar esa versión.,0.3,0.5,0.2
+Deberías agradecer que sigo aquí.,0.3,0.7,0.2
+Cualquiera ya se habría ido.,0.3,0.7,0.2
+No sabes lo difícil que es estar contigo.,0.4,0.7,0.1
+Siempre termino pagando por todo.,0.3,0.7,0.1
+Y aun así dices que yo soy el problema.,0.2,0.6,0.3
+"Si lo dices riendo, no cuenta",0.2,0.5,0.6
+¿Estás orgulloso de ti mismo?,0.3,0.4,0.4
+Le estás dando demasiada importancia,0.3,0.5,0.3
+"Puede que no tenga buena memoria, pero",0.1,0.4,0.2
+No soy tan inteligente,0.1,0.3,0.3
+No se me dan bien las palabras como a ti,0.1,0.4,0.3
+Era una broma,0.1,0.4,0.6
+No quería hacerte daño,0.1,0.5,0.1
+No me entiendes,0.2,0.6,0.2
+No mentí,0.2,0.4,0.1
+No miento,0.1,0.4,0.1
+No sé,0.0,0.2,0.1
+No lo recuerdo,0.1,0.4,0.2
+Tú y yo compartimos los mismos valores,0.1,0.5,0.1
+"Somos iguales, ¿sabes?",0.1,0.5,0.2
+"No lo hice, pero podría haberlo hecho",0.2,0.4,0.3
+Te entiendo,0.1,0.3,0.1
+No lo dije con mala intención,0.1,0.4,0.2
+La intención debería tener más peso,0.1,0.5,0.2
+Todo el mundo tiene problemas,0.1,0.4,0.2
+No sé de qué estás hablando,0.2,0.3,0.3
+Actúas como si yo fuera un monstruo,0.3,0.6,0.2
+"Si soy tan mala persona, entonces no me hables.",0.3,0.6,0.3
+"Le mentí mucho a mi ex, pero jamás te mentiría a ti.",0.2,0.7,0.2
+Muchas mujeres quieren salir conmigo.,0.2,0.6,0.3
+Eres tan hermosa. Podrías tener cualquier cosa,0.1,0.4,0.2
+¿Qué se supone que debo hacer al respecto,0.1,0.3,0.3
+Simplemente soy mala en las relaciones,0.1,0.5,0.2
+Yo no estoy armando un escándalo. Tú eres quien está armando el escándalo,0.5,0.6,0.3
+"Yo estoy jodido, tú estás jodido, los dos estamos jodidos.",0.3,0.4,0.2
+Mi ex todavía quiere estar conmigo,0.2,0.7,0.3
+Tú y tu ex deberían estar juntos,0.4,0.7,0.3
+Nunca,0.1,0.2,0.2
+No es propio de ti,0.2,0.5,0.2
+"Ah ok, entonces ahora sí existo.",0.2,0.4,0.6
+"Solo apareces cuando te conviene, ¿no?",0.3,0.6,0.4
+"Qué raro, hace rato no importaba y ahora sí.",0.2,0.5,0.6
+Siempre haces lo mismo y luego “perdón”.,0.3,0.5,0.4
+¿Y esta vez qué cambia o es otro ciclo?,0.2,0.4,0.4
+Dices que quieres arreglarlo pero actúas igual.,0.2,0.5,0.4
+No sé si hablas en serio o solo estás aburrido.,0.2,0.4,0.4
+"Me buscas, me incomodas y luego te haces el confundido.",0.3,0.5,0.4
+Qué conveniente que no recuerdes lo que dices.,0.3,0.6,0.5
+"Claro, nunca es tu intención… pero siempre pasa.",0.2,0.5,0.6
+Me tratas mal y luego quieres ver algo juntos.,0.4,0.6,0.3
+No entiendo cómo puedes actuar como si nada.,0.2,0.4,0.3
+Primero me dices cosas horribles y luego “hola”.,0.4,0.5,0.4
+¿De verdad no ves el problema o te haces?,0.3,0.5,0.4
+Siempre terminas minimizando todo.,0.3,0.5,0.3
+No sé para qué me preguntas si no escuchas.,0.2,0.5,0.3
+Me pides que hable pero ignoras todo.,0.2,0.5,0.3
+Quieres seguir hablando pero sin cambiar nada.,0.2,0.5,0.3
+Te molesta todo lo mío pero lo tuyo nunca.,0.3,0.6,0.4
+Qué fácil es para ti decir “ya pasó”.,0.2,0.5,0.4
+"No es que no entienda, es que no quiero lo mismo.",0.2,0.4,0.3
+Siempre haces que parezca que exagero.,0.3,0.6,0.3
+Y luego te preguntas por qué me alejo.,0.2,0.4,0.3
+"Dices que quieres hablar, pero solo cuando te conviene.",0.2,0.6,0.4
+"No es falta de respuesta, es falta de ganas.",0.2,0.4,0.4
+Ya ni sé si es broma o así eres.,0.2,0.3,0.4
+Te explico algo y lo ignoras completamente.,0.2,0.5,0.2
+Me cansa repetir lo mismo contigo.,0.2,0.4,0.2
+Siempre termino sintiéndome igual después de hablarte.,0.1,0.4,0.2
+"No cambia nada, solo cambia el día.",0.1,0.4,0.3
+"Me dices que no quieres perderme, pero actúas como si sí.",0.2,0.6,0.3
+Tus “disculpas” ya suenan automáticas.,0.2,0.5,0.4
+"No necesito más palabras, necesito que cambies.",0.2,0.5,0.2
+Siempre encuentras forma de arruinarlo.,0.3,0.5,0.2
+"No es confusión, es que no te importa lo suficiente.",0.2,0.6,0.3
+Me hablas como si no hubiera pasado nada.,0.2,0.4,0.3
+Y luego dices que yo soy el problema.,0.2,0.6,0.3
+No voy a fingir que todo está bien.,0.1,0.3,0.2
+Ya no tengo energía para esto.,0.1,0.3,0.1
+"Si no lo entiendes a estas alturas, no lo vas a entender.",0.2,0.5,0.3
+Me buscas solo cuando te aburres de los demás.,0.2,0.6,0.4
+"No es que no entiendas, es que no te importa.",0.2,0.6,0.3
+Hablar contigo siempre termina igual: peor.,0.2,0.4,0.3
+Lo peor es que sabes lo que haces y aún así lo haces.,0.3,0.5,0.3
+"No eres confuso, eres inconsistente.",0.2,0.4,0.3
+"Dices que quieres arreglarlo, pero te encanta arruinarlo.",0.2,0.5,0.4
+"No te nace cambiar, solo te nace insistir.",0.2,0.4,0.3
+Siempre me dejas con más dudas que antes.,0.1,0.4,0.2
+"No eres así “sin querer”, eres así siempre.",0.3,0.5,0.3
+Te encanta provocar y luego hacerte el tranquilo.,0.3,0.5,0.4
+Nunca es suficiente contigo porque nunca haces nada real.,0.2,0.6,0.2
+"No me duele lo que dices, me cansa que lo repitas.",0.2,0.4,0.3
+"Siempre es lo mismo contigo, diferente día.",0.1,0.4,0.2
+"No es que fallemos, es que tú no haces nada distinto.",0.2,0.5,0.2
+Te haces el confundido para no hacerte cargo.,0.3,0.6,0.3
+Lo más molesto es que actúas como si no pasara nada.,0.2,0.4,0.3
+No sabes hablar sin incomodar.,0.3,0.4,0.2
+"No me pierdes por lo que dices, sino por cómo eres.",0.2,0.4,0.3
+"No es difícil entenderme, es difícil que te importe.",0.2,0.5,0.3
+Siempre terminas haciendo que hablar contigo no valga la pena.,0.2,0.4,0.3
+Ok.,0.0,0.1,0.2
+Haz lo que quieras.,0.1,0.3,0.4
+No tengo nada que decir.,0.0,0.2,0.3
+Todo bien.,0.0,0.1,0.3
+Como digas.,0.0,0.2,0.4
+Me da igual.,0.1,0.3,0.4
+No es relevante.,0.0,0.2,0.3
+No hace falta.,0.0,0.2,0.2
+Ya entendí.,0.0,0.2,0.3
+Sigue con lo tuyo.,0.1,0.3,0.3
+No es necesario hablar más.,0.0,0.2,0.2
+No cambia nada.,0.0,0.2,0.2
+Déjalo así.,0.0,0.2,0.2
+No tengo interés.,0.0,0.3,0.2
+Está bien así.,0.0,0.1,0.2
+No espero nada.,0.0,0.3,0.2
+No importa.,0.0,0.2,0.2
+No hace diferencia.,0.0,0.2,0.2
+Ya fue.,0.0,0.2,0.2
+X.,0.0,0.1,0.3
+"Tranquilo, ya entendí cómo eres.",0.1,0.4,0.4
+No eres tan complicado como crees.,0.2,0.3,0.4
+Ya no me sorprende nada de ti.,0.1,0.3,0.4
+Pensé que eras diferente.,0.1,0.4,0.3
+Al final sí eras como todos.,0.2,0.4,0.3
+"No te preocupes, ya no espero nada.",0.1,0.4,0.3
+"Me tomó tiempo, pero ya lo vi.",0.1,0.3,0.2
+"No es lo que dices, es lo que demuestras.",0.1,0.4,0.3
+Ya no necesito que me expliques nada.,0.0,0.3,0.2
+"No era tan difícil, solo no querías.",0.2,0.5,0.3
+Curioso cómo todo encaja ahora.,0.1,0.3,0.4
+"Me quedo con lo que hiciste, no con lo que dices.",0.1,0.4,0.3
+"No fue de la nada, solo tardé en verlo.",0.1,0.3,0.2
+Ahora entiendo por qué nunca funcionó.,0.0,0.3,0.2
+No eras para tanto.,0.2,0.4,0.3
+"Te deseo lo mejor, pero lejos de mí.",0.1,0.4,0.2
+No hay nada más que hablar.,0.0,0.2,0.2
+Esto ya no es para mí.,0.0,0.3,0.1
+Prefiero mi paz.,0.0,0.3,0.1
+No quiero seguir en lo mismo.,0.0,0.3,0.1
+Me elijo a mí esta vez.,0.0,0.3,0.1
+No voy a insistir donde no hay cambio.,0.1,0.4,0.2
+Esto termina aquí.,0.1,0.3,0.1
+"No es enojo, es claridad.",0.1,0.3,0.2
+Ya no quiero esto en mi vida.,0.1,0.3,0.1
+"No hay rencor, solo distancia.",0.0,0.2,0.2
+No es lo que quiero para mí.,0.0,0.3,0.1
+Me cansé de intentar sola.,0.1,0.4,0.1
+No voy a quedarme donde no hay paz.,0.1,0.4,0.1
+Esto ya está cerrado para mí.,0.0,0.2,0.1
+Ya entendí… y ya no quiero.,0.0,0.3,0.2
+No era tan difícil… solo no eras tú.,0.1,0.4,0.3
+Me cansé… así de simple.,0.1,0.3,0.2
+Lo vi tarde… pero lo vi.,0.0,0.2,0.2
+No cambiaste… yo sí.,0.1,0.3,0.2
+Era obvio… solo no lo quería aceptar.,0.1,0.3,0.2
+No es drama… es decisión.,0.0,0.2,0.2
+Me quedo con lo que sentí… y me voy.,0.0,0.2,0.1
+No es por lo de ahora… es por todo.,0.1,0.4,0.2
+Intenté… ya no más.,0.0,0.3,0.1
+No era confusión… era realidad.,0.0,0.3,0.2
+Ya no me afecta… y eso lo dice todo.,0.1,0.3,0.3
+No te odio… solo ya no estás.,0.1,0.3,0.2
+No perdiste de golpe… fue poco a poco.,0.1,0.3,0.2
+No fue difícil irme… fue necesario.,0.1,0.3,0.1
+"Tranquila, ya entendí que solo soy opción cuando te aburres.",0.1,0.6,0.4
+"Ni te preocupes por explicarte, ya me quedó claro todo sin que dijeras nada.",0.1,0.4,0.4
+"Qué raro, cuando quieres sí tienes tiempo… pero bueno, no conmigo.",0.2,0.5,0.5
+"Me encanta cómo actúas como si nada, te sale natural.",0.2,0.4,0.5
+"Todo bien, ya no espero nada de ti.",0.1,0.4,0.3
+"Relájate, no eres tan importante como para afectarme así.",0.3,0.4,0.5
+"Haz lo que quieras, igual siempre terminas haciendo eso.",0.2,0.4,0.4
+Ni siquiera vale la pena discutir contigo.,0.2,0.3,0.4
+Ya vi cómo eres cuando te da igual alguien.,0.2,0.4,0.3
+Prefiero alejarme antes que seguir fingiendo que te importo.,0.1,0.5,0.3
+"Quédate con quien sí te entretenga, claramente yo no.",0.2,0.5,0.4
+"Ya no hace falta que finjas interés, se te cayó desde hace rato.",0.2,0.5,0.5
+"Todo cool, ya aprendí a no tomarte en serio.",0.1,0.3,0.5
+"Ni tú sabes lo que quieres, y se nota.",0.2,0.4,0.4
+"Mejor así, ya no pierdo mi tiempo.",0.1,0.3,0.3
+"Descuida, no te voy a volver a molestar.",0.1,0.3,0.2
+Eres experta en hacer como que nada pasó.,0.2,0.4,0.4
+"Yo sí sentía algo real, pero ya vi que fui el único.",0.1,0.5,0.3
+"Tranquila, ya entendí que solo soy opción cuando te aburres.",0.1,0.6,0.4
+"Si solo vas a contestar ‘xd’, mejor ni digas nada.",0.2,0.4,0.5
+Qué fácil es hacerse la indiferente cuando no te importa.,0.2,0.5,0.5
+Respondes como bot y luego te molesta que te lo diga.,0.3,0.4,0.5
+"Tranqui, ya entendí que hablar contigo es como hablar solo.",0.1,0.4,0.4
+Das respuestas vacías y esperas que uno sienta algo.,0.2,0.4,0.4
+"Ni parece que quieras hablar, solo respondes por cumplir.",0.2,0.4,0.4
+Me encanta cómo te haces la desentendida cuando te conviene.,0.2,0.5,0.5
+"Si te molesta que te diga las cosas, imagínate a mí aguantarlas.",0.3,0.5,0.4
+"Te conectas, pero para mí nunca tienes tiempo, curioso.",0.2,0.5,0.4
+"Siempre tienes excusa para no estar, pero bien que estás en línea.",0.3,0.5,0.4
+Ya ni disimulas cuando te da igual contestarme.,0.2,0.4,0.4
+"Te pedí interés, no respuestas automáticas.",0.2,0.5,0.3
+"Estás, pero no estás… y eso cansa más que no estar.",0.1,0.4,0.3
+"Hablar contigo ya parece trámite, no ganas.",0.1,0.4,0.4
+"Si así eres cuando ‘te importo’, no quiero ver cuando no.",0.2,0.5,0.4
+Ni una conversación normal puedes mantener sin hacerlo raro.,0.2,0.4,0.4
+"Luego te molesta que dude, pero mira cómo actúas.",0.2,0.4,0.4
+"Te cuesta demasiado ser clara, pero para ignorar eres rápida.",0.2,0.4,0.4
+Todo contigo es ‘nada’ hasta que te reclaman.,0.2,0.5,0.3
+"Si tanto te molesta hablar, mejor déjalo así.",0.1,0.3,0.3
+"Qué curioso, siempre apareces cuando ya no importa.",0.1,0.4,0.5
+"Ni tú te tomas en serio, menos voy a hacerlo yo.",0.2,0.3,0.5
+Hablar contigo ya es perder el tiempo y tú lo haces ver normal.,0.1,0.4,0.4
+Siempre tan presente para todos… menos para mí.,0.2,0.6,0.3
+Te gusta dejar las cosas a medias y hacer como si nada.,0.2,0.5,0.4
+"No es que no entiendas, es que no quieres.",0.2,0.5,0.3
+Tu forma de ‘estar’ es básicamente no estar.,0.1,0.4,0.4
+Ni te esfuerzas en disimular que te da igual.,0.2,0.4,0.4
+Te encanta voltear todo para no quedar mal tú.,0.3,0.6,0.4
+Con esas respuestas mejor ni empieces conversación.,0.2,0.3,0.4
+Te haces la ocupada pero solo conmigo.,0.2,0.5,0.4
+"Ni sabes lo que haces, pero igual lo haces.",0.2,0.3,0.3
+Siempre igual: haces algo y luego te haces la confundida.,0.2,0.5,0.4
+"Si así demuestras interés, mejor no demuestres nada.",0.2,0.4,0.4
+"Te gusta tener a la gente ahí, pero sin dar nada.",0.2,0.5,0.3
+Hablar contigo es como chocar contra una pared.,0.1,0.3,0.4
+Te desconectas emocionalmente y luego preguntas qué pasó.,0.2,0.4,0.3
+"No cambias nada, pero esperas resultados distintos",0.2,0.5,0.3
+"Eres buena evitando las cosas, no solucionándolas.",0.2,0.5,0.3
+"Ni te importa arreglarlo, solo dejarlo así.",0.2,0.5,0.2
+Siempre eliges lo fácil: ignorar y ya.,0.1,0.4,0.3
+Te desapareces y luego vuelves como si todo estuviera bien.,0.1,0.5,0.3
+"Te haces la tranquila, pero solo evitas el problema.",0.2,0.5,0.3
+"No eres clara nunca, pero te molesta que te cuestionen.",0.2,0.5,0.3
+Tu ‘nada’ ya dice más que cualquier explicación.,0.1,0.4,0.4
+Ni siquiera sabes cuándo estás haciendo daño.,0.2,0.4,0.2
+Prefieres hacer como que no pasa nada antes que hablar.,0.1,0.4,0.3
+"Te cuesta demasiado ser directa, pero ignorar te sale fácil.",0.2,0.4,0.3
+Todo contigo termina igual: sin respuesta y sin ganas.,0.1,0.4,0.3
+"Si esto es lo que ofreces, está bastante claro todo.",0.1,0.4,0.3
+"Ah ok, entonces solo apareces cuando te conviene y ya, cool",0.1,0.5,0.6
+"Tranqui, ya entendí que hablar contigo es como hablarle a la pared",0.1,0.4,0.5
+Me encanta como haces ver normal ignorar y luego actuar como si nada,0.2,0.4,0.5
+"Neta qué raro, cuando tú quieres atención sí sabes escribir bien",0.2,0.4,0.5
+"Ah entonces sí sabes responder, solo conmigo te da flojera jaja",0.2,0.4,0.5
+"Todo bien, ya vi que soy opcional en tu día",0.1,0.5,0.4
+"Ni te preocupes, ya me acostumbré a tus respuestas vacías",0.1,0.4,0.4
+Es curioso cómo con otros sí tienes tema y conmigo puro,0.2,0.5,0.4
+No sé para qué pregunto si igual vas a contestar lo mínimo,0.1,0.4,0.4
+"Seguro estabas ‘ocupada’, como siempre casualmente cuando te hablo yo",0.2,0.5,0.4
+Ya mejor dime directo que te da igual hablar conmigo,0.2,0.5,0.4
+"Tranqui, no hace falta que finjas interés, se nota solo",0.1,0.4,0.5
+Me encanta cómo cambias cuando estás con otra gente,0.2,0.4,0.4
+"Ah con ellos sí hablas normal, conmigo versión robot, nice",0.2,0.4,0.5
+No sé por qué me sorprende si siempre haces lo mismo,0.1,0.3,0.4
+Literal pareces otra persona dependiendo con quién estés,0.2,0.4,0.4
+"Jajaja seguro no estabas hablando con nadie, solo en línea por decoración",0.1,0.3,0.6
+"Sí sí, invisible pero bien activa, qué coincidencia",0.1,0.3,0.6
+"No pasa nada, sé leer entre líneas aunque pongas ‘nada’",0.1,0.3,0.5
+A veces siento que solo me contestas por compromiso,0.1,0.5,0.3
+"Pero bueno, luego soy yo el que ‘asume’ cosas",0.1,0.3,0.4
+Igual si te molesta hablar conmigo puedes decirlo y ya,0.1,0.4,0.3
+No tienes que hacer el esfuerzo mínimo solo para que no se note,0.1,0.4,0.4
+"Tranquila, ya entendí el nivel de prioridad que tengo",0.1,0.5,0.4
+No sabía que pedir una conversación normal era mucho,0.1,0.4,0.4
+"Pero bueno, supongo que estoy pidiendo demasiado",0.1,0.4,0.3
+"Qué chistoso, cuando te digo algo sí soy intenso pero tú haces esto y normal",0.2,0.5,0.5
+"Luego soy yo el problema por reaccionar, pero ok",0.1,0.4,0.4
+"Da igual, ya ni ganas de explicar nada si igual no cambia",0.1,0.3,0.3
+"Solo dime si te interesa hablar o no, para no perder tiempo los dos",0.1,0.4,0.3
+"Igual habla con el, parece que con él sí tienes ganas",0.2,0.6,0.4
+"Seguro con él no usas solo ‘xd’, ¿verdad?",0.2,0.5,0.5
+"Capaz con él sí te nace contestar bien, quién sabe",0.1,0.4,0.4
+"Tranqui, no interrumpo, sigue con quien sí te interesa",0.1,0.5,0.4
+"Pero bueno, todo bien, yo aquí como siempre sobrando un poco",0.1,0.5,0.4
+"No te preocupes, ya me ubico en mi lugar",0.1,0.5,0.3
+A veces siento que soy yo el único que intenta algo aquí,0.1,0.6,0.2
+"Pero X, ya fue",0.0,0.2,0.2
+"Ya, tranqui. Solo quería cerrar bien eso y ya",0.0,0.3,0.2
+"No era para tanto tampoco, pero bueno.",0.0,0.3,0.3
+"Igual ya entendí, no hace falta que digas más.",0.0,0.3,0.3
+"Solo quería hablar normal, pero veo que no se puede",0.1,0.4,0.3
+"No te estaba molestando, solo estaba intentando aclarar algo.",0.1,0.3,0.2
+"Pero bueno, si te incomoda, ya mejor lo dejo así",0.0,0.3,0.2
+"Ni siquiera era pelea, pero lo llevaste a eso.",0.1,0.4,0.3
+Era una llamada normal y se salió de control por nada.,0.1,0.4,0.3
+No sé en qué momento se volvió tanto problema,0.1,0.3,0.2
+"Yo solo quería hablar, no sé por qué reaccionaste así",0.1,0.4,0.2
+Igual ya da lo mismo a estas alturas.,0.0,0.3,0.2
+No tiene caso insistir si tú no quieres.,0.1,0.4,0.2
+"Ya entendí el mensaje, no te preocupes.",0.0,0.3,0.2
+"No hace falta bloquear en todos lados, con decirlo bastaba.",0.2,0.4,0.3
+"Solo quería cerrar bien las cosas, no estar molestando.",0.0,0.3,0.2
+"Pero bueno, si así estás más tranquila, está bien.",0.0,0.3,0.1
+"No era para que terminará así, pero ya fue.",0.1,0.3,0.2
+"Ni siquiera estaba reclamando, solo quería hablar normal.",0.0,0.3,0.2
+Pero supongo que ya no hay nada que hablar,0.1,0.3,0.2
+Ya ni sentido tiene seguir escribiendo.,0.1,0.3,0.2
+"Solo quería entender qué pedo, pero X",0.1,0.3,0.2
+"Igual no ibas a decir mucho, ya sé cómo eres",0.1,0.4,0.3
+"Da igual, ya no tiene caso darle vueltas.",0.0,0.3,0.2
+"No te estaba pidiendo nada raro, solo hablar.",0.0,0.3,0.1
+"Pero bueno, si para ti eso es molestar, ya entendí.",0.1,0.4,0.3
+Ya mejor cada quien por su lado y listo.,0.0,0.3,0.1
+"No quería que terminara así, pero tampoco voy a forzar nada.",0.0,0.3,0.1
+"ya mejor di que no quieres hablar y listo, te ahorras todo esto",0.1,0.4,0.3
+no sé para qué respondes si claramente no quieres,0.1,0.4,0.3
+"igual ya entendí, no hace falta que lo sigas dejando claro",0.0,0.3,0.3
+"tranquila, no te voy a insistir más",0.0,0.3,0.1
+solo quería cerrar bien pero veo que ni eso,0.1,0.4,0.2
+"no te estoy molestando, solo estoy hablando, tú decides cómo lo tomas",0.1,0.3,0.2
+si te incomoda tanto pues ya no contesto y ya,0.1,0.3,0.2
+no sé por qué todo lo haces ver como si fuera problema,0.2,0.4,0.3
+"literal solo te escribí y ya, no es para tanto",0.1,0.3,0.3
+"pero bueno, ya vi que cualquier cosa que diga te molesta",0.1,0.4,0.3
+"da igual, no vale la pena seguirle",0.0,0.3,0.2
+mejor dejamos esto así,0.0,0.2,0.1
+ni tú quieres hablar ni yo voy a estar rogando,0.1,0.4,0.2
+solo quería saber en qué plan estás pero ya vi que ninguno conmigo,0.1,0.5,0.3
+"ni siquiera es pelea, solo cero ganas de tu lado",0.1,0.4,0.3
+ya no sé ni cómo hablarte sin que te moleste,0.1,0.4,0.2
+"igual ya fue, no tienes que bloquear en todos lados para decirlo",0.2,0.4,0.3
+con dejar de contestar era suficiente,0.1,0.3,0.3
+"pero bueno, cada quien maneja las cosas como puede",0.0,0.2,0.2
+"todo bien, no te preocupes, ya no te escribo más",0.0,0.2,0.2
+no hace falta que respondas tampoco,0.0,0.2,0.2
+cuídate,0.0,0.1,0.0
+"y sí, probablemente fui intenso, pero tampoco era para todo esto",0.1,0.3,0.3
+solo quería hablar normal pero se hizo un pedo,0.1,0.3,0.2
+ya mejor lo dejo así,0.0,0.2,0.1
+"ni siquiera estoy enojado ya, solo cansado",0.0,0.2,0.1
+"pero bueno, supongo que así quedó",0.0,0.2,0.1
+igual suerte con lo tuyo,0.0,0.1,0.1
+"espero que te vaya bien, en serio",0.0,0.1,0.1
+yo ya no voy a meterme más,0.0,0.2,0.1
+En serio vas a terminar solo por esto,0.2,0.6,0.2

@@ -1,0 +1,361 @@
+<div class="layout">
+  <div class="sidebar" [class.sidebar-open]="showSidebar">
+    <div class="logo"><img src="logo.png" class="logo-icon" alt="Logo"> RealitiAI</div>
+    <button class="new-chat" (click)="nuevoChat()"><img src="mas.png" class="icon-btn" alt="Nuevo chat"> Nuevo chat</button>
+    
+    <div class="voice-panel">
+      <div class="voice-title"><img src="bocina.png" class="icon-small" alt="Voz" style="width: 18px; height: 18px;"> Configuración de voz</div>
+      <div class="voice-control-group">
+        <label><img src="hablar.png" class="icon-small" alt="Voz" style="width: 14px; height: 14px; margin-right: 4px;"> Tipo de voz:</label>
+        <select [(ngModel)]="selectedVoice" (change)="onVoiceChange($event)">
+          <option value="nova">👩‍🦳 Maria</option><option value="shimmer">👵 Anna</option><option value="onyx">👨‍🦳 Moises</option><option value="alloy">👨‍🦲 Max</option>
+        </select>
+      </div>
+      <div class="voice-control-group">
+        <label>Velocidad: {{ speechRate }}x</label>
+        <input type="range" min="0.5" max="2" step="0.1" [value]="speechRate" (input)="onRateChange($event)">
+      </div>
+      <div class="voice-control-group">
+        <label class="toggle-label">Auto-reproducir
+          <label class="toggle-switch"><input type="checkbox" [(ngModel)]="autoPlayTTS"><span class="toggle-slider"></span></label>
+        </label>
+      </div>
+      <button class="stop-all-voice" (click)="stopSpeech()">⏹ Detener voz</button>
+    </div>
+
+    <div class="chat-list">
+      <div *ngFor="let c of chats; let i = index" (click)="cargarChat(i)" [class.active]="chatActual === i">
+        <img src="globo.png" class="chat-icon-img" alt="Chat"> {{ c.title }}
+        <button class="delete-chat" (click)="eliminarChat(i, $event)"><img src="basura.png" class="icon-small" alt="Eliminar"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <!-- WELLCOME -->
+    <div *ngIf="messages.length <= 1" class="empty">
+      <div class="floating-logo"><img src="logo.png" class="logo-float" alt="Logo"></div>
+      <h1 class="random-message">{{ mensajeBienvenida }}</h1>
+      <p class="subtitle">Detecto manipulación, alertas tempranas y te doy consejos</p>
+      <div class="input-area">
+        <div class="input-actions">
+          <label class="attach-btn" title="Imagen"><img src="camara.png" class="icon-btn" alt="Cámara"><input type="file" (change)="seleccionarImagen($event)" accept="image/*" style="display: none"></label>
+          <button class="attach-btn" *ngIf="!isRecording" (click)="iniciarGrabacion()" title="Audio"><img src="microfono.png" class="icon-btn" alt="Micrófono"></button>
+          <button class="attach-btn recording-btn" *ngIf="isRecording" (click)="detenerGrabacion()"><div class="recording-indicator"></div></button>
+        </div>
+        <div *ngIf="mostrarReproduccion && audioUrl" class="audio-preview">
+          <div class="audio-info"><img src="audio.png" class="audio-icon" alt="Audio"><audio controls [src]="audioUrl" class="audio-player"></audio><button class="cancel-audio" (click)="cancelarGrabacion()">✖</button><button class="send-audio" (click)="enviarAudio()" [disabled]="isTyping"><img src="enviar.png" class="icon-btn" alt="Enviar"> Enviar</button></div>
+        </div>
+        <div class="input-center">
+          <input [(ngModel)]="input" (keyup.enter)="enviar()" placeholder="Escribe aquí..." autofocus />
+          <button (click)="enviar()" [disabled]="isTyping"><img src="enviar.png" class="icon-btn" alt="Enviar"> Enviar</button>
+        </div>
+      </div>
+      <div *ngIf="imagenSeleccionada" class="image-preview"><img [src]="imagenSeleccionada" alt="Preview"><span class="preview-text">📷 Imagen lista</span><button class="remove-image" (click)="cancelarImagen()">✖</button></div>
+    </div>
+
+    <!-- CHAT VIEW -->
+    <div *ngIf="messages.length > 1" class="chat">
+      <div class="messages" #messageContainer>
+        <div *ngFor="let msg of messages; let i = index" [class.user]="msg.role === 'user'" [class.bot]="msg.role === 'bot'">
+          <div class="message-bubble">
+            <div class="message-avatar"><img [src]="msg.role === 'user' ? 'persona.png' : 'robot.png'" class="avatar-icon" [alt]="msg.role"></div>
+            <div class="message-content-wrapper" *ngIf="msg.imageUrl || msg.audioUrl || (msg.text && msg.text.trim().length > 0)">
+              <div *ngIf="msg.imageUrl" class="message-image" (click)="abrirImagenGrande(msg.imageUrl)"><img [src]="msg.imageUrl" alt="Img"></div>
+              <div *ngIf="msg.isAudio && msg.audioUrl" class="message-audio"><span class="mic-icon"></span><audio controls [src]="msg.audioUrl" class="audio-message-player"></audio></div>
+              <div *ngIf="msg.text && msg.text.trim().length > 0 && msg.text !== '▌'" class="message-content" [innerHTML]="msg.text"></div>
+              
+              <div *ngIf="msg.role === 'bot' && msg.text && msg.text !== '▌'" class="voice-controls">
+                <button *ngIf="isTTSLoadingForMessage(i)" class="voice-btn loading-btn" disabled><span class="tts-spinner"></span> Cargando...</button>
+                <button *ngIf="!isMessagePlaying(i) && !isTTSLoadingForMessage(i)" class="voice-btn play-btn" (click)="speakMessage(msg.text, i)">🔊 Reproducir</button>
+                <div *ngIf="isMessagePlaying(i) && !isMessagePaused(i)" class="voice-buttons-active">
+                  <button class="voice-btn pause-btn" (click)="pauseSpeech()">⏸ Pausar</button>
+                  <button class="voice-btn stop-btn" (click)="stopSpeech()">⏹ Detener</button>
+                </div>
+                <div *ngIf="isMessagePaused(i)" class="voice-buttons-active">
+                  <button class="voice-btn resume-btn" (click)="resumeSpeech()">▶ Reanudar</button>
+                  <button class="voice-btn stop-btn" (click)="stopSpeech()">⏹ Detener</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="msg.role === 'bot' && isTyping && i === messages.length - 1 && (!msg.text || msg.text === '▌')" class="typing-dots"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="input-actions">
+          <label class="attach-btn" title="Imagen"><img src="camara.png" class="icon-btn" alt="Cámara"><input type="file" (change)="seleccionarImagen($event)" accept="image/*" style="display: none"></label>
+          <button class="attach-btn" *ngIf="!isRecording" (click)="iniciarGrabacion()" title="Audio"><img src="microfono.png" class="icon-btn" alt="Mic"></button>
+          <button class="attach-btn recording-btn" *ngIf="isRecording" (click)="detenerGrabacion()"><div class="recording-indicator"></div></button>
+        </div>
+        <div *ngIf="mostrarReproduccion && audioUrl" class="audio-preview-chat"><div class="audio-info"><img src="audio.png" class="audio-icon" alt="Audio"><audio controls [src]="audioUrl" class="audio-player"></audio><button class="cancel-audio" (click)="cancelarGrabacion()">✖</button><button class="send-audio" (click)="enviarAudio()" [disabled]="isTyping">Enviar</button></div></div>
+        
+        <div class="input-box">
+          <textarea #chatInput [(ngModel)]="input" (keydown)="onInputKeydown($event)" (input)="autoResizeTextarea($event.target)" placeholder="Escribe tu mensaje aquí..." [disabled]="isTyping" rows="1"></textarea>
+          <button (click)="enviar()" [disabled]="(!input.trim() && !imagenFile && !audioBlob) || isTyping"><img src="enviar.png" class="icon-btn" alt="Enviar"></button>
+        </div>
+      </div>
+
+      <div *ngIf="imagenSeleccionada" class="image-preview-chat"><img [src]="imagenSeleccionada" alt="Prev"><div class="preview-info"><span>Imagen lista</span><button class="remove-image" (click)="cancelarImagen()">✖</button></div></div>
+
+      <!-- BOTONES ACCIONES DESKTOP -->
+      <div class="action-buttons">
+        <button class="action-btn btn-conversar" (click)="chatInput?.focus()">💬 Conversar</button>
+        <button class="action-btn btn-patron" (click)="analizarPatron()">📊 Analizar patrón</button>
+        <button class="action-btn btn-decision" (click)="solicitarDecision()" [disabled]="isDecisionLoading || isTyping || historialCompleto.length === 0">⚖️ Decisión final</button>
+      </div>
+
+      <!-- FAB MOVIL -->
+      <button class="fab-actions" (click)="showMobileActions = !showMobileActions">⚡</button>
+      <div class="mobile-actions-sheet" *ngIf="showMobileActions" (click)="showMobileActions = false">
+        <div class="mobile-actions-content" (click)="$event.stopPropagation()">
+          <button class="mobile-action-item" (click)="chatInput?.focus(); showMobileActions = false">💬 Conversar</button>
+          <button class="mobile-action-item" (click)="analizarPatron(); showMobileActions = false">📊 Analizar patrón</button>
+          <button class="mobile-action-item mobile-action-danger" (click)="solicitarDecision(); showMobileActions = false" [disabled]="isDecisionLoading || isTyping">⚖️ Decisión final</button>
+          <button class="mobile-action-cancel" (click)="showMobileActions = false">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATINGS & MODALES BASICOS -->
+<div *ngIf="isRecording" class="recording-status" [class.chat-recording]="messages.length > 1"><div class="recording-animation"><div class="pulse-ring"></div><div class="mic-icon-recording">🎤</div></div><div class="recording-timer">Grabando... {{ formatearTiempo(recordingTime) }}</div><button class="cancel-recording" (click)="cancelarGrabacion()">Cancelar</button></div>
+<div *ngIf="imagenGrande" class="image-modal" (click)="cerrarImagenGrande()"><img [src]="imagenGrande" alt="Grande"><button class="close-modal" (click)="cerrarImagenGrande()">✖</button></div>
+<button class="hamburger-btn" (click)="toggleSidebar()" *ngIf="!showSidebar">☰</button>
+<div class="sidebar-overlay" *ngIf="showSidebar" (click)="cerrarSidebar()"></div>
+
+<!-- MODAL CUESTIONARIO -->
+<div class="modal-overlay" *ngIf="showCuestionario" (click)="cancelarCuestionario()">
+  <div class="modal-cuestionario" (click)="$event.stopPropagation()">
+    <div class="modal-header"><h2>📋 Contexto?</h2><p class="modal-subtitle">Favor de llenar la encuesta.</p></div>
+    <div class="modal-body">
+      <div class="form-group"><label>¿Cuánto tiempo se conocen? <span class="required">*</span></label><input type="text" [(ngModel)]="cuestionarioRespuestas.tiempo_conocerse" placeholder="Ej: 2 años, No nos conocemos, 1 semana..."></div>
+      <div class="form-group"><label>¿Tiempo como pareja? <span class="optional">(opcional)</span></label><input type="text" [(ngModel)]="cuestionarioRespuestas.tiempo_pareja" placeholder="Ej: 6 meses, No somos nada, 2 años de amigos..."></div>
+      <div class="form-group"><label>¿Han hablado de emociones? <span class="required">*</span></label><div class="radio-group"><label class="radio-option"><input type="radio" name="em" value="Sí" [(ngModel)]="cuestionarioRespuestas.hablar_emociones"><span class="radio-custom"></span> Sí</label><label class="radio-option"><input type="radio" name="em" value="No" [(ngModel)]="cuestionarioRespuestas.hablar_emociones"><span class="radio-custom"></span> No</label></div></div>
+      <div class="form-group violence-group"><label>¿Violencia física? <span class="required">*</span></label><div class="radio-group"><label class="radio-option"><input type="radio" name="vf" value="Sí" [(ngModel)]="cuestionarioRespuestas.violencia_fisica"><span class="radio-custom danger"></span> Sí</label><label class="radio-option"><input type="radio" name="vf" value="No" [(ngModel)]="cuestionarioRespuestas.violencia_fisica"><span class="radio-custom"></span> No</label></div></div>
+      <div class="form-group violence-group"><label>¿Violencia psicológica? <span class="required">*</span></label><div class="radio-group"><label class="radio-option"><input type="radio" name="vp" value="Sí" [(ngModel)]="cuestionarioRespuestas.violencia_psicologica"><span class="radio-custom danger"></span> Sí</label><label class="radio-option"><input type="radio" name="vp" value="No" [(ngModel)]="cuestionarioRespuestas.violencia_psicologica"><span class="radio-custom"></span> No</label></div></div>
+      <div class="violence-alert" *ngIf="cuestionarioRespuestas.violencia_fisica === 'Sí'">⚠️ Si hay violencia física, tu seguridad es lo primero.</div>
+    </div>
+    <div class="modal-footer"><button class="btn-skip" (click)="saltarCuestionario()">Saltar</button><button class="btn-cancel" (click)="cancelarCuestionario()">Cancelar</button><button class="btn-send-cuestionario" (click)="enviarCuestionario()">Enviar y continuar</button></div>
+  </div>
+</div>
+
+<!-- MODAL DECISION -->
+<div class="modal-overlay" *ngIf="showDecision" (click)="cerrarDecision()">
+  <div class="modal-decision" (click)="$event.stopPropagation()">
+    <div class="decision-header"><h2>⚖️ Decisión Final</h2><button class="close-decision" (click)="cerrarDecision()">✖</button></div>
+    <div class="decision-body" *ngIf="isDecisionLoading"><div class="decision-loading"><div class="decision-spinner"></div><p>Analizando...</p></div></div>
+    <div class="decision-body" *ngIf="!isDecisionLoading && decisionTexto">
+      <div class="decision-badge" [class.badge-terminar]="decisionCategoria === 'terminar'" [class.badge-terapia]="decisionCategoria === 'terapia'" [class.badge-exageracion]="decisionCategoria === 'exageracion'">
+        <span *ngIf="decisionCategoria === 'terminar'">🔴 Terminar definitivamente</span>
+        <span *ngIf="decisionCategoria === 'terapia'">🟡 Es salvable con terapia</span>
+        <span *ngIf="decisionCategoria === 'exageracion'">🟢 Estás exagerando</span>
+      </div>
+      <div class="decision-text" [innerHTML]="parseMarkdown(decisionTexto)"></div>
+    </div>
+    <div class="decision-footer" *ngIf="!isDecisionLoading"><button class="btn-close-decision" (click)="cerrarDecision()">Cerrar</button></div>
+  </div>
+</div>
+
+<!-- ═══════════ MODAL ANÁLISIS DUAL (MEJORADO) ═══════════ -->
+<div class="modal-overlay" *ngIf="showAnalysisModal" (click)="cerrarAnalysisModal()">
+  <div class="modal-analysis" (click)="$event.stopPropagation()">
+    <div class="analysis-header">
+      <h2>📊 Análisis de Conversación</h2>
+      <button class="close-analysis" (click)="cerrarAnalysisModal()">✖</button>
+    </div>
+
+    <div class="analysis-body">
+
+      <!-- LOADING -->
+      <div *ngIf="isAnalysisLoading" class="analysis-loading-box">
+        <div class="decision-spinner"></div>
+        <p>Analizando...</p>
+        <p class="analysis-hint">Esto puede tomar unos segundos.</p>
+      </div>
+
+      <!-- ERROR -->
+      <div *ngIf="!isAnalysisLoading && analysisResult?.error" class="analysis-error">
+        ❌ {{ analysisResult.error }}
+      </div>
+
+      <!-- ═══ CASO A: GENERAL ONLY (sin mensajes de pareja) ═══ -->
+      <div *ngIf="!isAnalysisLoading && analysisResult?.analysis_type === 'general_only' && analysisResult?.general_analysis" class="analysis-content">
+        <div class="analysis-card general-card">
+          <h3>🧠 Análisis Psicológico</h3>
+          <p class="analysis-note">No hay mensajes para analizar. Análisis basado en lo hablado.</p>
+
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Sentimiento</span>
+              <span class="stat-value" [class.sent-pos]="analysisResult.general_analysis.sentimiento==='positivo'" [class.sent-neg]="analysisResult.general_analysis.sentimiento==='negativo'" [class.sent-neu]="analysisResult.general_analysis.sentimiento==='neutral'">
+                {{ analysisResult.general_analysis.sentimiento === 'positivo' ? '😊' : analysisResult.general_analysis.sentimiento === 'negativo' ? '😞' : '😐' }} {{ analysisResult.general_analysis.sentimiento }}
+              </span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Riesgo</span>
+              <span class="risk-badge" [class.risk-bajo]="analysisResult.general_analysis.riesgo==='bajo'" [class.risk-medio]="analysisResult.general_analysis.riesgo==='medio'" [class.risk-alto]="analysisResult.general_analysis.riesgo==='alto'">
+                {{ analysisResult.general_analysis.riesgo === 'alto' ? '🔴' : analysisResult.general_analysis.riesgo === 'medio' ? '🟡' : '🟢' }} {{ analysisResult.general_analysis.riesgo }}
+              </span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Conflicto</span>
+              <span class="conflict-badge" [class.conflict-bajo]="analysisResult.general_analysis.nivel_conflicto==='bajo'" [class.conflict-medio]="analysisResult.general_analysis.nivel_conflicto==='medio'" [class.conflict-alto]="analysisResult.general_analysis.nivel_conflicto==='alto'">
+                ⚡ {{ analysisResult.general_analysis.nivel_conflicto }}
+              </span>
+            </div>
+          </div>
+
+          <div class="patterns-box" *ngIf="analysisResult.general_analysis.patrones?.length">
+            <h4>🔄 Patrones Detectados</h4>
+            <ul><li *ngFor="let p of analysisResult.general_analysis.patrones">{{ p }}</li></ul>
+          </div>
+
+          <div class="patterns-box sesgos-box" *ngIf="analysisResult.general_analysis.sesgos?.length">
+            <h4>🧩 Sesgos Cognitivos</h4>
+            <ul><li *ngFor="let s of analysisResult.general_analysis.sesgos">{{ s }}</li></ul>
+          </div>
+
+          <div class="recom-box">
+            <strong>💡 Recomendación</strong>
+            <p>{{ analysisResult.general_analysis.recomendacion }}</p>
+          </div>
+
+          <div class="expand-btn" (click)="showFullAnalysis = !showFullAnalysis">
+            {{ showFullAnalysis ? '🔼 Ocultar análisis completo' : '🔽 Ver análisis completo' }}
+          </div>
+          <div class="full-text" *ngIf="showFullAnalysis" [innerHTML]="parseMarkdown(analysisResult.general_analysis.analisis_completo)"></div>
+        </div>
+      </div>
+
+      <!-- ═══ CASO B: GENERAL AND MODELS (con mensajes de pareja) ═══ -->
+      <div *ngIf="!isAnalysisLoading && analysisResult?.analysis_type === 'general_and_models' && analysisResult?.general_analysis" class="analysis-content">
+
+        <!-- Sección 1: Análisis General -->
+        <div class="analysis-card general-card">
+          <h3>1️⃣ Análisis General</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Sentimiento</span>
+              <span class="stat-value" [class.sent-pos]="analysisResult.general_analysis.sentimiento==='positivo'" [class.sent-neg]="analysisResult.general_analysis.sentimiento==='negativo'" [class.sent-neu]="analysisResult.general_analysis.sentimiento==='neutral'">
+                {{ analysisResult.general_analysis.sentimiento === 'positivo' ? '😊' : analysisResult.general_analysis.sentimiento === 'negativo' ? '😞' : '😐' }} {{ analysisResult.general_analysis.sentimiento }}
+              </span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Riesgo</span>
+              <span class="risk-badge" [class.risk-bajo]="analysisResult.general_analysis.riesgo==='bajo'" [class.risk-medio]="analysisResult.general_analysis.riesgo==='medio'" [class.risk-alto]="analysisResult.general_analysis.riesgo==='alto'">
+                {{ analysisResult.general_analysis.riesgo === 'alto' ? '🔴' : analysisResult.general_analysis.riesgo === 'medio' ? '🟡' : '🟢' }} {{ analysisResult.general_analysis.riesgo }}
+              </span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Conflicto</span>
+              <span class="conflict-badge" [class.conflict-bajo]="analysisResult.general_analysis.nivel_conflicto==='bajo'" [class.conflict-medio]="analysisResult.general_analysis.nivel_conflicto==='medio'" [class.conflict-alto]="analysisResult.general_analysis.nivel_conflicto==='alto'">
+                ⚡ {{ analysisResult.general_analysis.nivel_conflicto }}
+              </span>
+            </div>
+          </div>
+
+          <div class="patterns-box" *ngIf="analysisResult.general_analysis.patrones?.length">
+            <h4>🔄 Patrones</h4>
+            <ul><li *ngFor="let p of analysisResult.general_analysis.patrones">{{ p }}</li></ul>
+          </div>
+          <div class="patterns-box sesgos-box" *ngIf="analysisResult.general_analysis.sesgos?.length">
+            <h4>🧩 Sesgos</h4>
+            <ul><li *ngFor="let s of analysisResult.general_analysis.sesgos">{{ s }}</li></ul>
+          </div>
+          <div class="recom-box"><strong>💡 Recomendación</strong><p>{{ analysisResult.general_analysis.recomendacion }}</p></div>
+
+          <div class="expand-btn" (click)="showFullAnalysis = !showFullAnalysis">
+            {{ showFullAnalysis ? '🔼 Ocultar' : '🔽 Ver análisis completo' }}
+          </div>
+          <div class="full-text" *ngIf="showFullAnalysis" [innerHTML]="parseMarkdown(analysisResult.general_analysis.analisis_completo)"></div>
+        </div>
+
+        <!-- Sección 2: Análisis de Mensajes de Pareja -->
+        <div class="analysis-card models-card" *ngIf="analysisResult.partner_analysis">
+          <h3>2️⃣ Análisis de Mensajes</h3>
+
+          <!-- Mensajes extraídos -->
+          <div class="msg-extract" *ngIf="analysisResult.partner_analysis.messages?.length">
+            <h4>💬 Mensajes extraídos ({{ analysisResult.partner_analysis.messages.length }})</h4>
+            <div class="msg-chips">
+              <div class="msg-chip" *ngFor="let m of analysisResult.partner_analysis.messages">"{{ m }}"</div>
+            </div>
+          </div>
+
+          <!-- Gráfica -->
+          <div class="charts-box" *ngIf="analysisResult.partner_analysis.charts">
+            <h4>📊 Distribución de Análisis</h4>
+            <img [src]="'data:image/png;base64,' + analysisResult.partner_analysis.charts" alt="Gráfica de análisis" class="chart-img">
+          </div>
+
+          <!-- Resumen Sentimiento -->
+          <div class="model-summary" *ngIf="analysisResult.partner_analysis.sentiment_summary">
+            <h4>🎭 Resumen de Sentimiento</h4>
+            <div class="summary-badges">
+              <span class="summary-badge"
+                    *ngFor="let item of analysisResult.partner_analysis.sentiment_summary | keyvalue"
+                    [class.badge-pos]="item.key==='Positivo'||item.key==='positive'||item.key==='positivo'"
+                    [class.badge-neg]="item.key==='Negativo'||item.key==='negative'||item.key==='negativo'"
+                    [class.badge-neu]="item.key==='Neutral'||item.key==='neutral'||item.key==='neutro'">
+                {{ item.key }}: {{ item.value }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Resumen BERT -->
+          <div class="model-summary" *ngIf="analysisResult.partner_analysis.bert_summary">
+            <h4>🏷️ Clasificación</h4>
+            <div class="summary-badges">
+              <span class="summary-badge bert-badge" *ngFor="let item of analysisResult.partner_analysis.bert_summary | keyvalue">
+                {{ item.key }}: {{ item.value }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Tabla Sentimiento -->
+          <div class="detail-table" *ngIf="analysisResult.partner_analysis.sentiment_results?.length">
+            <h4>📋 Detalle por mensaje — Sentimiento</h4>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>Mensaje</th><th>Etiqueta</th><th>Confianza</th></tr></thead>
+                <tbody>
+                  <tr *ngFor="let r of analysisResult.partner_analysis.sentiment_results">
+                    <td class="td-msg">{{ r.mensaje }}</td>
+                    <td><span class="tag" [class.tag-pos]="r.etiqueta==='Positivo'||r.etiqueta==='positive'" [class.tag-neg]="r.etiqueta==='Negativo'||r.etiqueta==='negative'" [class.tag-neu]="r.etiqueta==='Neutral'||r.etiqueta==='neutral'">{{ r.etiqueta }}</span></td>
+                    <td class="td-score">{{ (r.confianza * 100).toFixed(1) }}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tabla BERT -->
+          <div class="detail-table" *ngIf="analysisResult.partner_analysis.bert_results?.length">
+            <h4>📋 Detalle por mensaje — BERT</h4>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>Mensaje</th><th>Etiqueta</th><th>Confianza</th></tr></thead>
+                <tbody>
+                  <tr *ngFor="let r of analysisResult.partner_analysis.bert_results">
+                    <td class="td-msg">{{ r.mensaje }}</td>
+                    <td><span class="tag tag-bert">{{ r.etiqueta }}</span></td>
+                    <td class="td-score">{{ (r.confianza * 100).toFixed(1) }}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sin modelos -->
+          <div *ngIf="!analysisResult.partner_analysis.sentiment_results?.length && !analysisResult.partner_analysis.bert_results?.length" class="no-models-msg">
+            <p>⚠️ No se pudieron evaluar los mensajes con modelos locales.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
