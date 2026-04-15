@@ -510,6 +510,14 @@ class AnalyzeDualRequest(BaseModel):
 # ══════════════════════════════════════
 @app.post("/analyze/dual")
 async def analyze_dual(req: AnalyzeDualRequest):
+
+    if sentiment_pipe is None:
+        print("Cargando modelos bajo demanda...")
+        sentiment_pipe = pipeline(
+            "text-classification",
+            model="UMUTeam/roberta-spanish-sentiment-analysis",
+            top_k=1
+        )
     """
     Análisis híbrido de conversación:
     PASO 1 → Detectar si hay mensajes de la pareja
