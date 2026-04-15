@@ -100,14 +100,15 @@ async def load_ml_models():
     # ── Modelo BERT personalizado (850 frases) ──
     try:
         from transformers import AutoModelForSequenceClassification, AutoTokenizer as BertTokenizer
-        _bert_tokenizer = BertTokenizer.from_pretrained('./tokenizer_bert_850_frases')
-        _bert_model = AutoModelForSequenceClassification.from_pretrained('./modelo_bert_850_frases')
-        bert_pipe = pipeline("text-classification", model=_bert_model, tokenizer=_bert_tokenizer, top_k=1)
-        if hasattr(_bert_model.config, 'id2label'):
-            print(f"   BERT labels: {_bert_model.config.id2label}")
-        print("✅ Modelo BERT personalizado cargado correctamente.")
+        # _bert_tokenizer = BertTokenizer.from_pretrained('./tokenizer_bert_850_frases') 
+        # _bert_model = AutoModelForSequenceClassification.from_pretrained('./modelo_bert_850_frases')
+        # bert_pipe = pipeline("text-classification", model=_bert_model, tokenizer=_bert_tokenizer, top_k=1)
+        bert_pipe = None
+        #if hasattr(_bert_model.config, 'id2label'):
+        #    print(f"   BERT labels: {_bert_model.config.id2label}")
+        print("Modelo BERT desactivado para deploy.")
     except Exception as e:
-        print(f"⚠️ Modelo BERT no encontrado (análisis será sin BERT): {e}")
+        print(f"Error con BERT: {e}")
         bert_pipe = None
 
 # ══════════════════════════════════════
