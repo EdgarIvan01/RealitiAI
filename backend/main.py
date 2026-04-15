@@ -82,33 +82,33 @@ bert_pipe = None
 
 @app.on_event("startup")
 async def load_ml_models():
-    global sentiment_pipe  # Solo mantenemos este
-    try:
-        print("Cargando modelo de análisis de sentimiento (UMUTeam/roberta-spanish-sentiment-analysis)...")
+    #global sentiment_pipe  # Solo mantenemos este
+    #try:
+    #    print("Cargando modelo de análisis de sentimiento (UMUTeam/roberta-spanish-sentiment-analysis)...")
         #sentiment_pipe = pipeline(
         #    "text-classification",
         #    model="UMUTeam/roberta-spanish-sentiment-analysis",
         #    top_k=1
         #)
-        print("Modelo de sentimiento desactivado.")
-        sentiment_pipe = None
-    except Exception as e:
-        print(f"❌ Modelo de sentimiento desactivado: {e}")
-        sentiment_pipe = None
+    #    print("Modelo de sentimiento desactivado.")
+    #    sentiment_pipe = None
+    #except Exception as e:
+    #    print(f"❌ Modelo de sentimiento desactivado: {e}")
+    #    sentiment_pipe = None
 
     # ── Modelo BERT personalizado (850 frases) ──
-    try:
-        from transformers import AutoModelForSequenceClassification, AutoTokenizer as BertTokenizer
+    #try:
+    #    from transformers import AutoModelForSequenceClassification, AutoTokenizer as BertTokenizer
         # _bert_tokenizer = BertTokenizer.from_pretrained('./tokenizer_bert_850_frases') 
         # _bert_model = AutoModelForSequenceClassification.from_pretrained('./modelo_bert_850_frases')
         # bert_pipe = pipeline("text-classification", model=_bert_model, tokenizer=_bert_tokenizer, top_k=1)
         bert_pipe = None
         #if hasattr(_bert_model.config, 'id2label'):
         #    print(f"   BERT labels: {_bert_model.config.id2label}")
-        print("Modelo BERT desactivado para deploy.")
-    except Exception as e:
-        print(f"Error con BERT: {e}")
-        bert_pipe = None
+    #    print("Modelo BERT desactivado para deploy.")
+    #except Exception as e:
+    #    print(f"Error con BERT: {e}")
+    #    bert_pipe = None
 
 # ══════════════════════════════════════
 #  MODELOS Pydantic
@@ -510,7 +510,7 @@ class AnalyzeDualRequest(BaseModel):
 # ══════════════════════════════════════
 @app.post("/analyze/dual")
 async def analyze_dual(req: AnalyzeDualRequest):
-
+    global sentiment_pipe
     if sentiment_pipe is None:
         print("Cargando modelos bajo demanda...")
         sentiment_pipe = pipeline(
