@@ -78,25 +78,22 @@ Reglas:
 #  MODELOS HUGGINGFACE (Carga al inicio)
 # ══════════════════════════════════════
 sentiment_pipe = None
-toxicity_pipe = None
-sarcasm_pipe = None
 bert_pipe = None
 
 @app.on_event("startup")
 async def load_ml_models():
-    global sentiment_pipe, toxicity_pipe, sarcasm_pipe, bert_pipe
+    global sentiment_pipe  # Solo mantenemos este
     try:
-        print("Cargando modelos de HuggingFace (puede tardar la primera vez)...")
+        print("Cargando modelo de análisis de sentimiento (UMUTeam/roberta-spanish-sentiment-analysis)...")
         sentiment_pipe = pipeline(
             "text-classification",
             model="UMUTeam/roberta-spanish-sentiment-analysis",
             top_k=1
         )
-        toxicity_pipe = pipeline("text-classification", model="gplsi/Toxicity_model_RoBERTa-base-bne", top_k=None)
-        sarcasm_pipe = pipeline("text-classification", model="l52mas/ironiaL52_roberta", top_k=None)
-        print("✅ Modelos base cargados correctamente.")
+        print("✅ Modelo de sentimiento cargado correctamente.")
     except Exception as e:
-        print(f"❌ Error cargando modelos base: {e}")
+        print(f"❌ Error cargando modelo de sentimiento: {e}")
+        sentiment_pipe = None
 
     # ── Modelo BERT personalizado (850 frases) ──
     try:
