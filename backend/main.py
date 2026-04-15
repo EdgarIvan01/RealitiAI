@@ -142,23 +142,15 @@ async def health():
 
 @app.post("/chat")
 async def chat(req: ChatRequest):
-    """
-    Chat principal con streaming usando GPT-4o-mini.
-    El frontend envía { text, historial }.
-    historial ya incluye el mensaje actual del usuario.
-    """
     try:
         messages = [{"role": "system", "content": SYSTEM_PROMPT}]
         historial = list(req.historial)
 
-        # Reemplazar último mensaje de usuario con req.text
-        # (para imágenes, req.text contiene la descripción completa de visión)
         if historial and historial[-1].get("role") == "user" and req.text:
             historial[-1]["content"] = req.text
         elif req.text:
             historial.append({"role": "user", "content": req.text})
 
-        # Limitar historial a últimos 20 mensajes para ahorrar tokens
         historial_limitado = historial[-20:] if len(historial) > 20 else historial
         for msg in historial_limitado:
             if msg.get("role") in ["user", "assistant"]:
@@ -181,7 +173,12 @@ async def chat(req: ChatRequest):
 
         return StreamingResponse(
             generate(),
-            media_type="text/plain; charset=utf-8"
+            media_type="text/plain; charset=utf-8",
+            headers={
+                "Cache-Control": "no-cache",
+                "X-Accel-Buffering": "no",      # ← CRÍTICO para Render
+                "Connection": "keep-alive",
+            }
         )
 
     except Exception as e:
@@ -510,21 +507,9 @@ class AnalyzeDualRequest(BaseModel):
 # ══════════════════════════════════════
 @app.post("/analyze/dual")
 async def analyze_dual(req: AnalyzeDualRequest):
-    global sentiment_pipe
-    if sentiment_pipe is None:
-        print("Cargando modelos bajo demanda...")
-        sentiment_pipe = pipeline(
-            "text-classification",
-            model="UMUTeam/roberta-spanish-sentiment-analysis",
-            top_k=1
-        )
     """
-    Análisis híbrido de conversación:
-    PASO 1 → Detectar si hay mensajes de la pareja
-    PASO 2A → Análisis psicológico con IA (siempre)
-    PASO 2B → Extraer mensajes de pareja con IA (si hay)
-    PASO 2C → Evaluar con modelos locales: Sentimiento + BERT (si hay)
-    PASO 2D → Generar gráficas
+    Análisis híbrido usando SOLO OpenAI (sin modelos locales).
+    Compatible con Render free tier.
     """
     try:
         conv_text = "\n".join([
@@ -532,7 +517,6 @@ async def analyze_dual(req: AnalyzeDualRequest):
             for m in req.conversation
         ])
 
-        # Seguridad: conversación vacía
         if not conv_text.strip():
             return {
                 "analysis_type": "general_only",
@@ -545,12 +529,9 @@ async def analyze_dual(req: AnalyzeDualRequest):
                 "partner_analysis": None
             }
 
-        # Truncar para la IA si es muy largo
-        conv_for_ai = conv_text[:8000] if len(conv_text) > 8000 else conv_text
+        conv_for_ai = conv_text[:8000]
 
-        # ═══════════════════════════════════════
-        #  PASO 1: Detectar si hay mensajes de pareja
-        # ═══════════════════════════════════════
+        # Detectar si hay mensajes de pareja
         def _detect_partner():
             res = openai_client.chat.completions.create(
                 model="gpt-4o-mini",
@@ -558,16 +539,7 @@ async def analyze_dual(req: AnalyzeDualRequest):
                     {
                         "role": "system",
                         "content": (
-                            "Determina si en esta conversación el usuario incluyó mensajes, "
-                            "citas o palabras textuales de su pareja o amigo.\n\n"
-                            "Indicadores de SÍ:\n"
-                            '- "ella dijo...", "me contestó...", "me escribió..."\n'
-                            "- Citas entre comillas atribuidas a la otra persona\n"
-                            "- Transcripciones de chats de WhatsApp, Messenger, etc.\n"
-                            "- Frases como: lo que me dijo, su respuesta fue, me mandó esto\n\n"
-                            "Indicadores de NO:\n"
-                            "- El usuario solo cuenta su versión sin citar textualmente a la otra persona\n"
-                            "- No hay citas ni mensajes directos del otro\n\n"
+                            "Determina si el usuario incluyó mensajes/citas textuales de su pareja.\n"
                             "Responde SOLO: SI o NO"
                         )
                     },
@@ -580,14 +552,12 @@ async def analyze_dual(req: AnalyzeDualRequest):
 
         has_partner = await asyncio.to_thread(_detect_partner)
 
-        # ═══════════════════════════════════════
-        #  PASO 2A: Análisis General con IA (SIEMPRE)
-        # ═══════════════════════════════════════
+        # Análisis general (siempre)
         def _general_analysis():
             contexto = (
-                "considerando AMBOS lados (lo que dice el usuario Y las citas textuales de su pareja/amigo)"
+                "considerando AMBOS lados (usuario Y citas de su pareja)"
                 if has_partner
-                else "basándote solo en lo que cuenta el usuario (no hay citas de la otra persona)"
+                else "basándote solo en lo que cuenta el usuario"
             )
             res = openai_client.chat.completions.create(
                 model="gpt-4o-mini",
@@ -595,18 +565,11 @@ async def analyze_dual(req: AnalyzeDualRequest):
                     {
                         "role": "system",
                         "content": (
-                            f"Eres un psicólogo experto en relaciones interpersonales. "
-                            f"Genera un análisis psicológico profundo {contexto}.\n\n"
-                            "Devuelve SOLO JSON puro sin markdown ni backticks:\n"
-                            "{\n"
-                            '  "sentimiento": "positivo|neutral|negativo",\n'
-                            '  "patrones": ["patrón emocional 1", "patrón 2"],\n'
-                            '  "sesgos": ["sesgo cognitivo 1", "sesgo 2"],\n'
-                            '  "nivel_conflicto": "bajo|medio|alto",\n'
-                            '  "riesgo": "bajo|medio|alto",\n'
-                            '  "recomendacion": "recomendación concreta y directa",\n'
-                            '  "analisis_completo": "análisis extenso y detallado"\n'
-                            "}"
+                            f"Eres un psicólogo experto. Genera un análisis {contexto}.\n"
+                            "Devuelve SOLO JSON puro sin markdown:\n"
+                            '{"sentimiento":"positivo|neutral|negativo","patrones":["p1"],"sesgos":["s1"],'
+                            '"nivel_conflicto":"bajo|medio|alto","riesgo":"bajo|medio|alto",'
+                            '"recomendacion":"rec","analisis_completo":"texto largo"}'
                         )
                     },
                     {"role": "user", "content": f"Conversación:\n{conv_for_ai}"}
@@ -618,26 +581,19 @@ async def analyze_dual(req: AnalyzeDualRequest):
             text = text.replace("```json", "").replace("```", "").strip()
             return json.loads(text)
 
-        # ═══════════════════════════════════════
-        #  PASO 2B: Extraer mensajes de pareja con IA
-        # ═══════════════════════════════════════
-        def _extract_partner_messages():
+        # Extraer mensajes de pareja + análisis con GPT (sin modelos locales)
+        def _extract_and_analyze_partner():
             res = openai_client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
                     {
                         "role": "system",
                         "content": (
-                            "Extrae TODOS los mensajes, citas o frases que la pareja/amigo "
-                            "dijo según esta conversación.\n\n"
-                            "Incluye:\n"
-                            "- Mensajes entre comillas\n"
-                            '- "Ella dijo: ...", "Me contestó: ...", "Me escribió: ..."\n'
-                            "- Transcripciones de chat de WhatsApp\n"
-                            "- Cualquier palabra textual atribuida a la otra persona\n\n"
-                            "Devuelve SOLO un array JSON de strings sin markdown ni backticks:\n"
-                            '["frase completa 1", "frase completa 2"]\n'
-                            "Si no hay mensajes de la pareja, devuelve: []"
+                            "Extrae TODOS los mensajes/citas de la pareja y clasifica cada uno.\n\n"
+                            "Devuelve SOLO JSON puro sin markdown:\n"
+                            '{"messages":["frase1","frase2"],'
+                            '"sentiment_results":[{"mensaje":"...","etiqueta":"Positivo|Neutral|Negativo","confianza":0.85}],'
+                            '"sentiment_summary":{"Positivo":1,"Negativo":2,"Neutral":1}}'
                         )
                     },
                     {"role": "user", "content": f"Conversación:\n{conv_for_ai}"}
@@ -650,197 +606,75 @@ async def analyze_dual(req: AnalyzeDualRequest):
             try:
                 return json.loads(text)
             except json.JSONDecodeError:
-                match = re.search(r'\[.*\]', text, re.DOTALL)
+                match = re.search(r'\{.*\}', text, re.DOTALL)
                 if match:
                     try:
                         return json.loads(match.group())
-                    except Exception:
-                        return []
-                return []
+                    except:
+                        pass
+                return {"messages": [], "sentiment_results": [], "sentiment_summary": {}}
 
-        # ═══════════════════════════════════════
-        #  Ejecutar: general + extracción en PARALELO si hay pareja
-        # ═══════════════════════════════════════
         if has_partner:
-            general_res, partner_msgs = await asyncio.gather(
+            general_res, partner_data = await asyncio.gather(
                 asyncio.to_thread(_general_analysis),
-                asyncio.to_thread(_extract_partner_messages),
+                asyncio.to_thread(_extract_and_analyze_partner),
             )
+
+            # Generar gráfica simple con matplotlib
+            charts_b64 = ""
+            sentiment_summary = partner_data.get("sentiment_summary", {})
+            if sentiment_summary:
+                try:
+                    fig, ax = plt.subplots(1, 1, figsize=(6, 4.5))
+                    sentiment_colors = {
+                        "Positivo": "#22c55e", "Positive": "#22c55e", "positivo": "#22c55e",
+                        "Neutral": "#eab308", "neutral": "#eab308",
+                        "Negativo": "#ef4444", "Negative": "#ef4444", "negativo": "#ef4444",
+                    }
+                    labels = list(sentiment_summary.keys())
+                    values = list(sentiment_summary.values())
+                    colors = [sentiment_colors.get(l, "#8b5cf6") for l in labels]
+                    bars = ax.bar(labels, values, color=colors, edgecolor="white", linewidth=1.2, width=0.55)
+                    ax.set_title("Sentimiento en mensajes\nde la pareja", fontweight="bold", fontsize=12, color="white", pad=12)
+                    ax.set_ylabel("Cantidad", color="white", fontsize=10)
+                    for bar, v in zip(bars, values):
+                        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.15, str(v),
+                                ha="center", fontweight="bold", color="white", fontsize=11)
+                    fig.patch.set_facecolor("#0f172a")
+                    ax.set_facecolor("#1e293b")
+                    ax.tick_params(colors="white", labelsize=9)
+                    for spine in ax.spines.values():
+                        spine.set_color("#334155")
+                    ax.grid(axis="y", alpha=0.12, color="#475569")
+                    plt.tight_layout(pad=2.0)
+                    buf = io.BytesIO()
+                    plt.savefig(buf, format="png", bbox_inches="tight", dpi=130, facecolor=fig.get_facecolor())
+                    plt.close(fig)
+                    charts_b64 = base64.b64encode(buf.getvalue()).decode("utf-8")
+                except Exception as e:
+                    print(f"Error gráfica: {e}")
+
+            partner_analysis = {
+                "messages": partner_data.get("messages", []),
+                "sentiment_results": partner_data.get("sentiment_results", []),
+                "bert_results": [],  # Sin modelo local
+                "sentiment_summary": sentiment_summary,
+                "bert_summary": {},
+                "charts": charts_b64,
+            }
+
+            return {
+                "analysis_type": "general_and_models",
+                "general_analysis": general_res,
+                "partner_analysis": partner_analysis,
+            }
         else:
             general_res = await asyncio.to_thread(_general_analysis)
-            partner_msgs = []
-
-        # Caso sin pareja: devolver solo general
-        if not has_partner:
             return {
                 "analysis_type": "general_only",
                 "general_analysis": general_res,
                 "partner_analysis": None,
             }
 
-        # ═══════════════════════════════════════
-        #  PASO 2C: Evaluar con modelos locales
-        # ═══════════════════════════════════════
-        partner_analysis = {
-            "messages": partner_msgs,
-            "sentiment_results": [],
-            "bert_results": [],
-            "sentiment_summary": {},
-            "bert_summary": {},
-            "charts": "",
-        }
-
-        if partner_msgs and sentiment_pipe:
-            sentiment_counts = {}
-            bert_counts = {}
-
-            for msg in partner_msgs[:15]:  # Limitar a 15 por rendimiento
-                if not msg or not msg.strip():
-                    continue
-                try:
-                    # ── Sentimiento ──
-                    s_out = sentiment_pipe(msg)
-                    if s_out and len(s_out) > 0:
-                        s_label = s_out[0]["label"]
-                        s_score = round(s_out[0]["score"], 3)
-                        sentiment_counts[s_label] = sentiment_counts.get(s_label, 0) + 1
-                        partner_analysis["sentiment_results"].append({
-                            "mensaje": msg[:60] + ("..." if len(msg) > 60 else ""),
-                            "etiqueta": s_label,
-                            "confianza": s_score,
-                        })
-
-                    # ── BERT personalizado ──
-                    if bert_pipe:
-                        b_out = bert_pipe(msg)
-                        if b_out and len(b_out) > 0:
-                            b_label = b_out[0]["label"]
-                            b_score = round(b_out[0]["score"], 3)
-                            bert_counts[b_label] = bert_counts.get(b_label, 0) + 1
-                            partner_analysis["bert_results"].append({
-                                "mensaje": msg[:60] + ("..." if len(msg) > 60 else ""),
-                                "etiqueta": b_label,
-                                "confianza": b_score,
-                            })
-                except Exception as e:
-                    print(f"Error evaluando mensaje con modelos: {e}")
-
-            partner_analysis["sentiment_summary"] = sentiment_counts
-            partner_analysis["bert_summary"] = bert_counts
-
-            # ═══════════════════════════════════════
-            #  PASO 2D: Generar Gráficas
-            # ═══════════════════════════════════════
-            try:
-                has_bert_data = bert_pipe and bert_counts
-                n_plots = 2 if has_bert_data else 1
-                fig, axes = plt.subplots(1, n_plots, figsize=(6 * n_plots, 4.5))
-                if n_plots == 1:
-                    axes = [axes]
-
-                # Mapeo de colores para sentimiento
-                sentiment_colors = {
-                    "Positivo": "#22c55e", "Positive": "#22c55e",
-                    "positive": "#22c55e", "positivo": "#22c55e",
-                    "Neutral": "#eab308", "neutral": "#eab308",
-                    "Negativo": "#ef4444", "Negative": "#ef4444",
-                    "negative": "#ef4444", "negativo": "#ef4444",
-                }
-
-                # Mapeo de colores para BERT
-                bert_colors = {
-                    "tóxico": "#ef4444", "toxico": "#ef4444", "toxic": "#ef4444",
-                    "manipulador": "#f97316", "manipuladora": "#f97316",
-                    "manipulacion": "#f97316", "manipulación": "#f97316",
-                    "negativo": "#f59e0b", "negativa": "#f59e0b",
-                    "neutro": "#3b82f6", "neutral": "#3b82f6",
-                    "positivo": "#22c55e", "positiva": "#22c55e",
-                    "normal": "#06b6d4", "cariñoso": "#ec4899",
-                    "cariñosa": "#ec4899", "agresivo": "#dc2626",
-                    "agresiva": "#dc2626", "pasivo_agresivo": "#a855f7",
-                    "controlador": "#ea580c", "controladora": "#ea580c",
-                    "inseguro": "#f472b6", "insegura": "#f472b6",
-                    "culpabilizador": "#b91c1c", "victimista": "#9333ea",
-                }
-                default_color = "#8b5cf6"
-
-                # ── Gráfica 1: Sentimiento ──
-                if sentiment_counts:
-                    labels = list(sentiment_counts.keys())
-                    values = list(sentiment_counts.values())
-                    colors = [sentiment_colors.get(l, default_color) for l in labels]
-                    bars = axes[0].bar(
-                        labels, values, color=colors,
-                        edgecolor="white", linewidth=1.2, width=0.55
-                    )
-                    axes[0].set_title(
-                        "Sentimiento en mensajes\nde la pareja",
-                        fontweight="bold", fontsize=12, color="white", pad=12
-                    )
-                    axes[0].set_ylabel("Cantidad", color="white", fontsize=10)
-                    for bar, v in zip(bars, values):
-                        axes[0].text(
-                            bar.get_x() + bar.get_width() / 2,
-                            bar.get_height() + 0.15,
-                            str(v), ha="center", fontweight="bold",
-                            color="white", fontsize=11
-                        )
-
-                # ── Gráfica 2: BERT ──
-                if has_bert_data:
-                    labels_b = list(bert_counts.keys())
-                    values_b = list(bert_counts.values())
-                    colors_b = [bert_colors.get(l.lower(), default_color) for l in labels_b]
-                    bars_b = axes[1].barh(
-                        labels_b, values_b, color=colors_b,
-                        edgecolor="white", linewidth=1.2, height=0.5
-                    )
-                    axes[1].set_title(
-                        "Clasificación BERT\n(modelo personalizado)",
-                        fontweight="bold", fontsize=12, color="white", pad=12
-                    )
-                    axes[1].set_xlabel("Cantidad", color="white", fontsize=10)
-                    for bar, v in zip(bars_b, values_b):
-                        axes[1].text(
-                            bar.get_width() + 0.15,
-                            bar.get_y() + bar.get_height() / 2,
-                            str(v), va="center", fontweight="bold",
-                            color="white", fontsize=11
-                        )
-
-                # Estilo dark theme
-                fig.patch.set_facecolor("#0f172a")
-                for ax in axes:
-                    ax.set_facecolor("#1e293b")
-                    ax.tick_params(colors="white", labelsize=9)
-                    ax.xaxis.label.set_color("white")
-                    ax.yaxis.label.set_color("white")
-                    for spine in ax.spines.values():
-                        spine.set_color("#334155")
-                    ax.grid(axis="y", alpha=0.12, color="#475569")
-
-                plt.tight_layout(pad=2.0)
-                buf = io.BytesIO()
-                plt.savefig(
-                    buf, format="png", bbox_inches="tight",
-                    dpi=130, facecolor=fig.get_facecolor()
-                )
-                plt.close(fig)
-                partner_analysis["charts"] = base64.b64encode(
-                    buf.getvalue()
-                ).decode("utf-8")
-
-            except Exception as e:
-                print(f"Error generando gráficas: {e}")
-
-        return {
-            "analysis_type": "general_and_models",
-            "general_analysis": general_res,
-            "partner_analysis": partner_analysis,
-        }
-
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Error en análisis dual: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Error en análisis: {str(e)}")
