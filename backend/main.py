@@ -85,14 +85,14 @@ async def load_ml_models():
     global sentiment_pipe  # Solo mantenemos este
     try:
         print("Cargando modelo de análisis de sentimiento (UMUTeam/roberta-spanish-sentiment-analysis)...")
-        sentiment_pipe = pipeline(
-            "text-classification",
-            model="UMUTeam/roberta-spanish-sentiment-analysis",
-            top_k=1
-        )
-        print("✅ Modelo de sentimiento cargado correctamente.")
+        #sentiment_pipe = pipeline(
+        #    "text-classification",
+        #    model="UMUTeam/roberta-spanish-sentiment-analysis",
+        #    top_k=1
+        #)
+        print("Modelo de sentimiento desactivado.")
     except Exception as e:
-        print(f"❌ Error cargando modelo de sentimiento: {e}")
+        print(f"❌ Modelo de sentimiento desactivado: {e}")
         sentiment_pipe = None
 
     # ── Modelo BERT personalizado (850 frases) ──
