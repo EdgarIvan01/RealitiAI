@@ -91,6 +91,7 @@ async def load_ml_models():
         #    top_k=1
         #)
         print("Modelo de sentimiento desactivado.")
+        sentiment_pipe = None
     except Exception as e:
         print(f"❌ Modelo de sentimiento desactivado: {e}")
         sentiment_pipe = None
