@@ -11,6 +11,7 @@ __pycache__/
 *.pth
 modelo_bert_850_frases/
 tokenizer_bert_850_frases/
+modelo_bert_toxico/
 
 # env
 .env

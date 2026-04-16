@@ -29,8 +29,8 @@ app = FastAPI(title="RealitiAI Backend", version="1.0.0")
 # ══════════════════════════════════════
 app.add_middleware(
     CORSMiddleware,
-    #allow_origins=["http://localhost:4200"],
-    allow_origins=["*"],
+    allow_origins=["http://localhost:4200"],
+    #allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -201,8 +201,8 @@ Tu tarea:
 1. TRANSCRIBIR todo el texto visible en la imagen lo más fielmente posible
 2. Si no puedes leer algo, pon [ilegible]
 3. NO inventes texto que no esté en la imagen
-4. Si la imagen está borrosa, muy pequeña o protegida, responde exactamente: DETECCIÓN_FALLIDA
-5. Si no hay texto en la imagen, responde exactamente: DESCRIPCIÓN_VACÍA"""
+4. Si la imagen está borrosa, muy pequeña o protegida, responde exactamente: No puedo reconocer nada
+5. Si no hay texto en la imagen, responde con una descripcion no tan detallada ejemplo: es un gatito"""
 
         user_content = [{"type": "text", "text": vision_prompt}]
 

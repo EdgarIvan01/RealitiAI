@@ -21,7 +21,7 @@ interface Chat {
   fecha: Date;
 }
 
-const API_BASE = 'https://realitiai-1.onrender.com';
+const API_BASE = 'https://trickle-matriarch-number.ngrok-free.dev';
 
 @Component({
   selector: 'app-chat',
