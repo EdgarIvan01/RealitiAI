@@ -19,7 +19,7 @@ import io
 import matplotlib
 matplotlib.use('Agg') # Obligatorio para servidores sin interfaz gráfica
 import matplotlib.pyplot as plt
-from transformers import pipeline
+# from transformers import pipeline
 load_dotenv()
 
 app = FastAPI(title="RealitiAI Backend", version="1.0.0")
@@ -76,8 +76,8 @@ Reglas:
 # ══════════════════════════════════════
 #  MODELOS HUGGINGFACE (Carga al inicio)
 # ══════════════════════════════════════
-sentiment_pipe = None
-bert_pipe = None
+# sentiment_pipe = None
+# bert_pipe = None
 
 @app.on_event("startup")
 async def load_ml_models():
