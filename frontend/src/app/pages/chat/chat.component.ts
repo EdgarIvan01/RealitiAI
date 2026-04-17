@@ -21,7 +21,7 @@ interface Chat {
   fecha: Date;
 }
 
-const API_BASE = 'https://trickle-matriarch-number.ngrok-free.dev';
+const API_BASE = 'https://realiti-ai-b4bk.vercel.app';
 
 @Component({
   selector: 'app-chat',
