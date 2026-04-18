@@ -223,7 +223,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Robo
   .sidebar.sidebar-open { left: 0; box-shadow: 4px 0 24px rgba(0,0,0,0.15); }
   .sidebar-overlay { display: block; }
   .action-buttons { display: none; }
-  .fab-actions { display: flex; position: fixed; bottom: 24px; right: 20px; width: 56px; height: 56px; border-radius: 50%; border: none; background: #1f2937; color: white; font-size: 22px; cursor: pointer; z-index: 800; box-shadow: 0 4px 20px rgba(0,0,0,0.25); align-items: center; justify-content: center; }
+  .fab-actions { display: flex; position: fixed; bottom: 104px; right: 20px; width: 56px; height: 56px; border-radius: 50%; border: none; background: #1f2937; color: white; font-size: 22px; cursor: pointer; z-index: 800; box-shadow: 0 4px 20px rgba(0,0,0,0.25); align-items: center; justify-content: center; }
   .mobile-actions-sheet { display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; align-items: flex-end; }
   .mobile-actions-content { background: white; width: 100%; border-radius: 24px 24px 0 0; padding: 12px 20px 32px; animation: slideUp 0.25s ease; }
   .mobile-action-item { width: 100%; padding: 16px; border: none; border-radius: 14px; background: #f9fafb; color: #1f2937; font-size: 15px; font-weight: 500; font-family: inherit; cursor: pointer; text-align: left; margin-bottom: 6px; }
@@ -242,3 +242,4 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Robo
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #fce7f3; border-radius: 10px; }
 ::-webkit-scrollbar-thumb { background: #f9a8d4; border-radius: 10px; }
+
